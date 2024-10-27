@@ -1,12 +1,7 @@
 @import 'variables';
-@import 'colors';
+
+@import 'mixins/breakpoints';
+@import 'mixins/utils';
+
 @import 'fonts';
-// @import "root";
-@import 'functions';
-
-@import 'group_mixins';
-
 @import 'reset';
-
-@import 'group_components';
-@import 'group_forms';

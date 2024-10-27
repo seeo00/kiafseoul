@@ -1,269 +1,287 @@
-html,
-body {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  font-family: $font-family-base;
-  color: var(--gray-90);
-  font-weight: map-get($fws, normal);
-  line-height: $line-height-base;
-  word-break: keep-all;
-  word-wrap: break-word;
-  -webkit-tap-highlight-color: transparent;
-  scroll-behavior: smooth;
-}
-html {
-  font-size: $font-size-root; // 10px = 1rem 설정
-}
-body {
-  font-size: $font-size-base; // 1.7rem = 17px
-  overflow-x: hidden;
-}
-*:focus {
-  @include focus();
-}
-::-moz-selection {
-  background: var(--secondary);
-  color: var(--white);
-}
-::selection {
-  background: $secondary;
-  color: var(--white);
-}
-
+/* reset */
 body,
 div,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-ol,
-li,
 dl,
 dt,
 dd,
-table,
-th,
-td,
-form,
-fieldset,
-legend,
-input,
-textarea,
-a,
-button,
-select,
 ul,
+ol,
 li,
-span,
-em,
-label,
-:before,
-:after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: none;
-  font-family: inherit;
-  line-height: $line-height-base;
-  letter-spacing: inherit;
-}
-pre {
-  font-family: inherit;
-}
-input,
-textarea,
-a,
-button,
-select,
-span,
-label,
-:before,
-:after {
-  font: {
-    size: inherit;
-    weight: inherit;
-  }
-}
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-strong {
-  font-weight: map-get($fws, bold);
-}
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section {
-  display: block;
+pre,
+code,
+form,
+fieldset,
+legend,
+textarea,
+p,
+blockquote,
+th,
+td,
+input,
+select,
+button,
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-img,
-fieldset {
-  border: 0;
-}
-fieldset {
-  min-width: 100%;
-}
+
+fieldset,
 img {
-  max-width: 100%;
-  vertical-align: top;
+  border: 0 none;
 }
+
+dl,
 ul,
-ol {
+ol,
+menu,
+li {
   list-style: none;
 }
-em,
-address,
-i {
-  font-style: normal;
+
+blockquote,
+q {
+  quotes: none;
 }
-a,
-a:hover,
-a:active,
-a:focus {
-  color: inherit;
-  text-decoration: none;
+
+blockquote {
+  &:before,
+  &:after {
+    content: '';
+    content: none;
+  }
 }
-button,
-input[type="submit"],
-input[type="button"] {
-  overflow: visible;
-  margin: 0;
+
+q {
+  &:before,
+  &:after {
+    content: '';
+    content: none;
+  }
+}
+
+input,
+select,
+textarea {
+  font-size: 100%;
+  vertical-align: middle;
+}
+
+button {
+  font-size: 100%;
+  vertical-align: middle;
+  border: 0 none;
   background-color: transparent;
-  border: none;
-  -webkit-appearance: button;
   cursor: pointer;
-  font: inherit;
-  color: inherit;
-}
-
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
-
-textarea {
-  resize: none;
-}
-
-label {
-  cursor: pointer;
-}
-
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-input[type="text"],
-input[type="tel"],
-input[type="password"],
-input[type="file"],
-input[type="number"],
-input[type="email"],
-input[type="date"],
-input[type="search"],
-textarea {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-caption {
-  position: static !important;
-  margin: 0 !important;
 }
 
 table {
-  table-layout: fixed;
-  max-width: none;
-  width: auto;
-  min-width: 100%;
   border-collapse: collapse;
+  border-spacing: 0;
 }
 
-[role="button"] {
-  cursor: pointer;
+body {
+  -webkit-text-size-adjust: none;
 }
 
-.img img {
-  min-width: 100%;
-  max-width: 100%;
-}
-.img.bg-img {
-  background-size: cover;
+/* 뷰표트 변환시 폰트크기 자동확대 방지 */
+input {
+  &[type='text'],
+  &[type='password'],
+  &[type='submit'],
+  &[type='search'] {
+    appearance: none;
+    border-radius: 0;
+  }
+
+  &:checked[type='checkbox'] {
+    background-color: $gray-20;
+    appearance: checkbox;
+  }
 }
 
+button {
+  appearance: button;
+  border-radius: 0;
+}
+
+input {
+  &[type='button'],
+  &[type='submit'],
+  &[type='reset'],
+  &[type='file'] {
+    appearance: button;
+    border-radius: 0;
+  }
+
+  &[type='search']::-webkit-search-cancel-button {
+    appearance: none;
+  }
+}
+
+/* 기본 폰트 설정 */
+/* mobile */
+html {
+  font-size: $font-size-root;
+}
+body {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-family: $font-family-base;
+  color: $font-color-base;
+  font-weight: $font-weight-base;
+}
+
+a {
+  color: $font-color-base;
+  text-decoration: none;
+
+  &:active,
+  &:hover {
+    text-decoration: none;
+  }
+}
+@media screen and (min-width: 1280px) {
+  a {
+    color: $font-color-base;
+    text-decoration: none;
+
+    &:active,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+hr {
+  display: none;
+}
+
+input[type='password'] {
+  font-family: 'Malgun Gothic';
+}
+
+/* 웹폰트 사용시 점이 안보임 - 기본 폰트 사용  */
+/* skipnavigation */
+#u-skip {
+  position: relative;
+  z-index: 3000;
+
+  a {
+    position: absolute;
+    top: -35px;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    padding: 7px 10px 5px;
+    background: $font-color-base;
+    color: $white;
+    text-decoration: none;
+    text-align: center;
+    opacity: 0;
+
+    &:focus {
+      top: 0;
+      opacity: 1;
+      z-index: 1000;
+    }
+  }
+}
+
+/* 이미지 스프라이트 */
+.img-g {
+  display: inline-block;
+  overflow: hidden;
+  background: url(../../images/comm/img-comm.png) no-repeat;
+  vertical-align: top;
+}
+
+/* 이미지 */
+/* global */
+
+.ir-pm {
+  display: block;
+  overflow: hidden;
+  font-size: 0px;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+/* 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */
+.ir-wa {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+}
+
+/* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */
 .blind,
-hr,
-.sr-only,
-legend,
-caption {
-  @include sr-only;
+caption,
+legend {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
 }
-.hide {
-  display: none !important;
+
+/* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */
+.f_l {
+  float: left;
 }
+
+.f_r {
+  float: right;
+}
+
 .show {
-  display: block !important;
+  display: block;
 }
 
-.al {
-  text-align: left !important;
-}
-.ac {
-  text-align: center !important;
-}
-.ar {
-  text-align: right !important;
+.hide {
+  display: none;
 }
 
-//responsive mobile
-@include mobile {
-  .pc-only {
-    display: none !important;
-  }
-  .pc-only.read {
-    @include sr-only;
-  }
-  .mob-line {
+.tbl {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 테이블 초기화 */
+.clearfix {
+  display: block;
+  overflow: visible;
+  width: auto;
+  clear: both;
+  zoom: 1;
+
+  &:after {
     display: block;
-    line-height: inherit;
-  }
-}
-
-@include mobileMore {
-  .mob-only {
-    display: none !important;
-  }
-  .mob-only.read {
-    @include sr-only;
-  }
-  .pc-line {
-    display: block;
-    line-height: inherit;
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    content: '';
   }
 }
