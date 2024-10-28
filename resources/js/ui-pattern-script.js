@@ -55,7 +55,7 @@ gsap.timeline().from('.fixed-txt span', {
   onComplete: () => masterTl.play(),
 });
 
-words.forEach((word) => {
+words.forEach(word => {
   let tl = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1 });
   tl.to('.text', { duration: 1, text: word });
   masterTl.add(tl);
@@ -83,20 +83,72 @@ document.addEventListener('DOMContentLoaded', function () {
 //   videoBox.style.right = `${newRight}px`;
 // });
 
-gsap.registerPlugin(ScrollTrigger);
+// 미디어쿼리 매칭을 위한 브레이크포인트 설정
+const mediaQuery = window.matchMedia('(min-width: 1025px)');
 
-// 동영상 초기 너비 설정
-gsap.set('.intro__vid', { width: '50%', right: '30px' });
+// GSAP 애니메이션 초기화 함수
+function initVideoAnimation() {
+  // ScrollTrigger 플러그인 등록
+  gsap.registerPlugin(ScrollTrigger);
 
-// GSAP을 사용하여 스크롤에 따라 너비 조정
-gsap.to('.intro__vid', {
-  scrollTrigger: {
-    trigger: '#wrap',
-    start: 'top top',
-    scrub: true,
-    end: 'bottom top',
-    markers: true,
-    pin: true,
-  },
-  width: () => `${document.querySelector('.inner').clientWidth - 60}px`, // left 30px, right 30px 제외
-});
+  // 비디오 애니메이션 생성 함수
+  function createVideoAnimation() {
+    // 동영상 초기 너비 설정
+    gsap.set('.intro__vid', {
+      width: '50%',
+      right: '30px',
+    });
+
+    // 스크롤에 따른 너비 조정 애니메이션
+    gsap.to('.intro__vid', {
+      scrollTrigger: {
+        trigger: '#wrap',
+        start: 'top top',
+        scrub: true,
+        end: '50%',
+        markers: true,
+        pin: true,
+      },
+      width: () => `${document.querySelector('.inner').clientWidth - 60}px`, // left 30px, right 30px 제외
+    });
+  }
+
+  // 애니메이션 클린업 함수
+  function cleanupVideoAnimation() {
+    // ScrollTrigger 인스턴스 제거
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+
+    // GSAP 애니메이션 제거
+    gsap.killTweensOf('.intro__vid');
+
+    // 비디오 요소의 스타일 초기화
+    gsap.set('.intro__vid', {
+      clearProps: 'all', // 모든 GSAP 속성 초기화
+    });
+  }
+
+  // 미디어쿼리 변경 감지 핸들러
+  function handleMediaQueryChange(e) {
+    if (e.matches) {
+      // 데스크톱 사이즈일 때 애니메이션 실행
+      createVideoAnimation();
+    } else {
+      // 태블릿/모바일 사이즈일 때 애니메이션 제거
+      cleanupVideoAnimation();
+
+      // 태블릿/모바일에서 사용할 기본 스타일 적용 (선택사항)
+      const videoElement = document.querySelector('.intro__vid');
+      if (videoElement) {
+        videoElement.style.width = '100%';
+        videoElement.style.right = '0';
+      }
+    }
+  }
+
+  // 초기 실행 및 리사이즈 이벤트 리스너 등록
+  handleMediaQueryChange(mediaQuery);
+  mediaQuery.addListener(handleMediaQueryChange);
+}
+
+// DOM이 로드된 후 초기화
+document.addEventListener('DOMContentLoaded', initVideoAnimation);
