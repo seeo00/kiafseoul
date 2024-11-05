@@ -793,7 +793,7 @@ legend {
   position: relative;
   border-radius: 12px;
   flex: 3;
-  background: url(../../../resources/images/pattern/common/458746643_18434769607068520_9219641459782683301_n.jpg) no-repeat center/cover;
+  background: url(../../../resources/images/pattern/common/sec-card_news.jpg) no-repeat center/cover;
 }
 .sec-card .card__area .news .card__link .image-box .btn-more::after {
   position: absolute;
@@ -839,7 +839,7 @@ legend {
   grid-area: 1/1/3/2;
 }
 .sec-card .card__area .wrapper-link .map .card__link {
-  background: url(../../../resources/images/pattern/common/스크린샷\ 2024-10-29\ 오후\ 2.13.19.png) no-repeat center/cover;
+  background: url(../../../resources/images/pattern/common/sec-card_map.png) no-repeat center/cover;
 }
 .sec-card .card__area .wrapper-link .magazine {
   background-color: #1d1d1d;
@@ -877,7 +877,7 @@ legend {
   border-radius: 100px;
   width: 85%;
   height: 100%;
-  background: url(../../images/pattern/common/스크린샷\ 2024-11-01\ 오전\ 9.49.24.png) no-repeat top center/cover;
+  background: url(../../../resources/images/pattern/common/sec-card_livetalk.png) no-repeat top center/cover;
 }
 .sec-card .card__area .livetalk .card__link .btn-text {
   position: absolute;
@@ -909,7 +909,7 @@ legend {
   border-radius: 100px;
   width: 85%;
   height: 100%;
-  background: url(../../images/pattern/common/imran-perretta-riot-three-acts-2024-install.jpg) no-repeat center/cover;
+  background: url(../../../resources/images/pattern/common/sec-card_article.jpg) no-repeat center/cover;
 }
 .sec-card .card__area .article .card__link .btn-text {
   position: absolute;
@@ -975,7 +975,7 @@ legend {
 }
 .sec-card .card__area .wrapper-archive .mobile .archive-1 .card__link {
   position: relative;
-  background: url(../../../resources/images/pattern/common/스크린샷\ 2024-11-01\ 오전\ 11.54.36.png) no-repeat top center/cover;
+  background: url(../../../resources/images/pattern/common/sec-card_archive.png) no-repeat top center/cover;
 }
 .sec-card .card__area .wrapper-archive .mobile .archive-1 .card__link::after {
   content: "";
@@ -1004,7 +1004,7 @@ legend {
 }
 .sec-card .card__area .wrapper-archive .mobile .archive-2 .card__link {
   position: relative;
-  background: url(../../../resources/images/pattern/common/sec-card_archive02.jpg) no-repeat center/cover;
+  background: url(../../../resources/images/pattern/common/sec-card_gallery.jpg) no-repeat center/cover;
 }
 .sec-card .card__area .wrapper-archive .mobile .archive-2 .card__link::after {
   content: "";
@@ -1031,7 +1031,7 @@ legend {
   position: relative;
 }
 .sec-card .card__area .wrapper-archive .mobile .archive-3 .card__link {
-  background: url(../../../resources/images/pattern/common/sec-card_archive03.jpg) no-repeat center/cover;
+  background: url(../../../resources/images/pattern/common/sec-card_seminar.jpg) no-repeat center/cover;
 }
 .sec-card .card__area .wrapper-archive .mobile .archive-3 .card__link::after {
   content: "";
@@ -1327,7 +1327,7 @@ legend {
     color: #fff;
   }
   .sec-card .card__area .wrapper-archive .archive-1 .card__link:hover {
-    background: url(../../../resources/images/pattern/common/스크린샷\ 2024-11-01\ 오전\ 11.54.36.png) no-repeat center/cover;
+    background: url(../../../resources/images/pattern/common/sec-card_archive.png) no-repeat center/cover;
   }
   .sec-card .card__area .wrapper-archive .archive-2 {
     height: 422.6666666667px;
@@ -1349,7 +1349,7 @@ legend {
     font-weight: 500;
   }
   .sec-card .card__area .wrapper-archive .archive-2 .card__link:hover {
-    background: url(../../../resources/images/pattern/common/sec-card_archive02.jpg) no-repeat center/cover;
+    background: url(../../../resources/images/pattern/common/sec-card_gallery.jpg) no-repeat center/cover;
   }
   .sec-card .card__area .wrapper-archive .archive-3 {
     height: 211.3333333333px;
@@ -1369,7 +1369,7 @@ legend {
     font-weight: 500;
   }
   .sec-card .card__area .wrapper-archive .archive-3 .card__link:hover {
-    background: url(../../../resources/images/pattern/common/sec-card_archive03.jpg) no-repeat center/cover;
+    background: url(../../../resources/images/pattern/common/sec-card_seminar.jpg) no-repeat center/cover;
   }
   .sec-card .card__area .wrapper-archive .archive-3 .card__link:hover .category,
   .sec-card .card__area .wrapper-archive .archive-3 .card__link:hover .title {
