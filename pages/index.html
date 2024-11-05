@@ -16,6 +16,8 @@
     <meta name="twitter:domain" content="사이트 명" />
     <link rel="shortcut icon" href="http://www.mysite.com/favicon.ico" />
     <!-- css -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link
@@ -29,10 +31,14 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../resources/css/styles.css" />
+    <link rel="stylesheet" href="../resources/css/pattern_css.css" />
     <!-- js -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
     <script defer src="../resources/js/ui-swiper.js"></script>
     <script defer src="../resources/js/ui-pattern-script.js"></script>
     <script defer src="../resources/js/include.js"></script>
@@ -122,106 +128,170 @@
       <div class="intro">
         <div class="inner">
           <div class="intro__txt">
-            <p class="">We Connect</p>
-            <p class="">_ Art & Future</p>
+            <!-- <p class="fixed-txt">We Connect</p> -->
+            <p class="fixed-txt">
+              <span>W</span>
+              <span>e</span>
+              <span class="blank"></span>
+              <span>C</span>
+              <span>o</span>
+              <span>n</span>
+              <span>n</span>
+              <span>e</span>
+              <span>c</span>
+              <span>t</span>
+            </p>
+            <p class="ani-txt">
+              <span class="cursor">_</span>
+              <span class="text"></span>
+            </p>
           </div>
-          <div class="intro__vid"></div>
+          <div class="intro__vid">
+            <video id="introVideo" loop autoplay muted playsinline>
+              <source src="../resources/images/pattern/common/Kiaf SEOUL 2024   SNAP].mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
       </div>
       <main id="container">
         <div class="sec-card">
           <div class="inner">
             <div class="card__area">
-              <div class="card__item since">
-                <a href="#">
-                  <h3>since</h3>
-                  <div class="txt-box">
-                    <strong class="title">about and history</strong>
-                    <span class="btn-goto"><span class="blind">새창열림</span></span>
-                  </div></a
-                >
-              </div>
               <div class="card__item news">
-                <a href="#">
-                  <h3>news</h3>
-                  <strong>아트페어의 의미있는 움직임</strong>
+                <a href="#" class="card__link">
+                  <div class="bottom-box">
+                    <span class="category">News</span>
+                    <strong class="title">Discovering Meaningful Trends in Art Fairs Today</strong>
+                  </div>
+                  <div class="image-box">
+                    <span class="btn-more"><span class="blind">바로가기</span></span>
+                  </div>
                 </a>
               </div>
-              <div class="wrapper-link">
-                <div class="card__item map">
-                  <h3>map</h3>
-                </div>
-                <a href="#" class="card__item kiafrieze"
-                  ><div class="icon-box"></div>
-                  <div class="txt-box">
-                    <strong class="title">kiafrieze</strong>
-                    <span class="btn-goto"><span class="blind">새창열림</span></span>
-                  </div></a
-                >
-                <a href="#" class="card__item membership"
-                  ><div class="icon-box"></div>
-                  <div class="txt-box">
-                    <strong class="title">member</strong>
-                    <span class="btn-goto"><span class="blind">새창열림</span></span>
-                  </div></a
-                >
+              <div class="card__item since">
+                <a href="#" class="card__link">
+                  <strong class="title">20+</strong>
+                  <div class="bottom-box">
+                    <p class="desc">About and History</p>
+                    <span class="btn-more"><span class="blind">새창열림</span></span>
+                  </div>
+                </a>
               </div>
 
+              <div class="wrapper-link">
+                <div class="card__item map">
+                  <a href="https://naver.me/x6PAuQQH" class="card__link"></a>
+                </div>
+                <div class="card__item magazine">
+                  <a href="#" class="card__link">
+                    <strong class="title">Magazine</strong>
+                    <span class="btn-link"><span class="blind">바로가기</span></span>
+                  </a>
+                </div>
+                <div class="card__item kiafrieze">
+                  <a href="#" class="card__link">
+                    <strong class="title">Kiafrieze</strong>
+                    <span class="btn-link"><span class="blind">바로가기</span></span>
+                  </a>
+                </div>
+              </div>
               <div class="card__item livetalk">
-                <a href="#">
-                  <h3 class="head">live&talk</h3>
-                  <span class="btn-goto"><span class="blind">바로가기</span></span>
+                <a href="#" class="card__link">
+                  <div class="image-box"></div>
+                  <span class="btn-text"
+                    ><span>See all insights<i class="ph ph-arrow-right"></i></span
+                  ></span>
                 </a>
               </div>
               <div class="card__item article">
-                <a href="#">
-                  <h3 class="head">Article</h3>
-                  <span class="btn-goto"><span class="blind">바로가기</span></span>
+                <a href="#" class="card__link">
+                  <div class="image-box"></div>
+                  <strong class="title blind">An Insightful Article Exploring the Future of Contemporary Art</strong>
+                  <span class="btn-text"
+                    ><span>See all articles<i class="ph ph-arrow-right"></i></span
+                  ></span>
                 </a>
+              </div>
+              <div class="wrapper-archive">
+                <div class="mobile">
+                  <div class="card__item archive-1">
+                    <a href="#" class="card__link">
+                      <span class="category">Archive</span>
+                      <div class="bottom-box">
+                        <strong class="title">Past Exhibitor</strong>
+                        <span class="btn-more"><span class="blind">바로가기</span></span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card__item archive-2">
+                    <a href="#" class="card__link">
+                      <span class="category">Gallery</span>
+                      <div class="bottom-box">
+                        <strong class="title">Exhibition</strong>
+                        <span class="btn-more"><span class="blind">바로가기</span></span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card__item archive-3">
+                    <a href="#" class="card__link">
+                      <span class="category">Seminar</span>
+                      <div class="bottom-box">
+                        <strong class="title">Program</strong>
+                        <span class="btn-more"><span class="blind">바로가기</span></span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="desktop">
+                  <div class="card__item archive-1">
+                    <a href="#" class="card__link">
+                      <div class="top-box">
+                        <span class="category">Archive</span>
+                        <strong class="title">Past Exhibitor</strong>
+                      </div>
+                      <span class="btn-more"><span class="blind">바로가기</span></span>
+                    </a>
+                  </div>
+                  <div class="card__item archive-2">
+                    <a href="#" class="card__link">
+                      <div class="top-box">
+                        <span class="category">Gallery</span>
+                        <strong class="title">Exhibition</strong>
+                      </div>
+                      <span class="btn-more"><span class="blind">바로가기</span></span>
+                    </a>
+                  </div>
+                  <div class="card__item archive-3">
+                    <a href="#" class="card__link">
+                      <div class="top-box">
+                        <span class="category">Seminar</span> <strong class="title">Program</strong>
+                      </div>
+
+                      <span class="btn-more"><span class="blind">바로가기</span></span>
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <div class="wrapper-acco">
-                <div class="card__item acco01">
-                  <a href="#">
-                    <h3 class="head">Past Exhibitor</h3>
-                    <span class="btn-goto"><span class="blind">바로가기</span></span>
-                  </a>
-                </div>
-                <div class="card__item acco02">
-                  <a href="#">
-                    <h3 class="head">Special Exhibition</h3>
-                    <span class="btn-goto"><span class="blind">바로가기</span></span>
-                  </a>
-                </div>
-                <div class="card__item acco03">
-                  <a href="#">
-                    <h3 class="head">Program</h3>
-                    <span class="btn-goto"><span class="blind">바로가기</span></span>
-                  </a>
-                </div>
-              </div>
               <div class="wrapper-goto">
-                <a href="#" class="card__item frieze">
-                  <div class="icon-box"></div>
-                  <div class="txt-box">
+                <div class="card__item frieze">
+                  <a href="#" class="card__link">
                     <strong class="title">Frieze Seoul</strong>
-                    <span class="btn-goto"><span class="blind">새창열림</span></span>
-                  </div>
-                </a>
-                <a href="#" class="card__item exhibitor">
-                  <div class="icon-box"></div>
-                  <div class="txt-box">
+                    <span class="btn-goto"><span class="blind">바로가기</span></span>
+                  </a>
+                </div>
+                <div class="card__item exhibitor">
+                  <a href="#" class="card__link">
                     <strong class="title">Exhibitor</strong>
-                    <span class="btn-goto"><span class="blind">새창열림</span></span>
-                  </div>
-                </a>
-                <a href="#" class="card__item partner">
-                  <div class="icon-box"></div>
-                  <div class="txt-box">
+                    <span class="btn-link"><span class="blind">바로가기</span></span>
+                  </a>
+                </div>
+                <div class="card__item partner">
+                  <a href="#" class="card__link">
                     <strong class="title">Partner</strong>
-                    <span class="btn-goto"><span class="blind">새창열림</span></span>
-                  </div>
-                </a>
+                    <span class="btn-link"><span class="blind">바로가기</span></span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -231,7 +301,7 @@
           <div class="inner">
             <div class="inner-slide">
               <div class="sec-slide__tit">
-                <h2 class="title">Latest Stories</h2>
+                <h2 class="title">Latest Story</h2>
                 <a href="#" class="btn-more"><span class="blind">더보기</span></a>
               </div>
               <div class="sec-slide__cont">
@@ -373,39 +443,39 @@
         <div class="sec-goto">
           <div class="inner">
             <ul class="sec-goto__list">
-              <li>
-                <a href="#">
-                  <div class="icon-box"></div>
-                  <div class="txt-box">
-                    <strong class="title">contact</strong>
+              <li class="list__item contact">
+                <a href="#" class="list__link">
+                  <div class="top-box"></div>
+                  <div class="bottom-box">
+                    <strong class="title">Contact</strong>
                     <span class="btn-goto"><span class="blind">메일 새창열림</span></span>
                   </div>
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  <div class="icon-box"></div>
-                  <div class="txt-box">
-                    <strong class="title">instagram</strong>
-                    <span class="btn-goto"><span class="blind">인스타그램 새창열림</span></span>
+              <li class="list__item instagram">
+                <a href="#" class="list__link">
+                  <div class="top-box"></div>
+                  <div class="bottom-box">
+                    <strong class="title">Instagram</strong>
+                    <span class="btn-goto"><span class="blind">새창열림</span></span>
                   </div>
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  <div class="icon-box"></div>
-                  <div class="txt-box">
-                    <strong class="title">facebook</strong>
-                    <span class="btn-goto"><span class="blind">페이스북 새창열림</span></span>
+              <li class="list__item facebook">
+                <a href="#" class="list__link">
+                  <div class="top-box"></div>
+                  <div class="bottom-box">
+                    <strong class="title">Facebook</strong>
+                    <span class="btn-goto"><span class="blind">새창열림</span></span>
                   </div>
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  <div class="icon-box"></div>
-                  <div class="txt-box">
-                    <strong class="title">youtube</strong>
-                    <span class="btn-goto"><span class="blind">유튜브 새창열림</span></span>
+              <li class="list__item youtube">
+                <a href="#" class="list__link">
+                  <div class="top-box"></div>
+                  <div class="bottom-box">
+                    <strong class="title">Youtube</strong>
+                    <span class="btn-goto"><span class="blind">새창열림</span></span>
                   </div>
                 </a>
               </li>
