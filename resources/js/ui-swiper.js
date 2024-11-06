@@ -14,6 +14,7 @@ var swiper = new Swiper('.slide-studio', {
   //slidesPerView: 1,
   spaceBetween: 20,
   //slidesOffsetAfter: 150,
+  loop: true,
   pagination: {
     el: '.slide-studio .swiper-pagination',
     clickable: true,
