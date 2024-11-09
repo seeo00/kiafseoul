@@ -1,10 +1,24 @@
+// LENIS 초기화
+const lenis = new Lenis();
+// GSAP의 ScrollTrigger 업데이트와 LENIS의 스크롤 동기화
+lenis.on('scroll', ScrollTrigger.update);
+// GSAP 타이커에 LENIS의 프레임을 추가
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000);
+});
+// GSAP의 lagSmoothing 비활성화 (부드러운 스크롤을 위해)
+gsap.ticker.lagSmoothing(0);
+
+//
 // intro 텍스트 애니메이션
 gsap.registerPlugin(TextPlugin);
 
-const words = ['Future', 'Artists', 'Creativity', 'Innovation', 'Inspiration'];
+const words = ['Future', 'Artists', 'Innovation', 'People', 'Inspiration'];
 
+gsap.set('.cursor', { opacity: 0 });
 let cursor = gsap.to('.cursor', {
-  opacity: 0,
+  delay: 1,
+  opacity: 1,
   repeat: -1,
   yoyo: true,
   duration: 0.01,
@@ -13,6 +27,7 @@ let cursor = gsap.to('.cursor', {
 let masterTl = gsap.timeline({ repeat: -1 }).pause();
 
 gsap.timeline().from('.fixed-txt span', {
+  delay: 2,
   duration: 0.4,
   y: '100%',
   ease: 'power2.out',
@@ -30,6 +45,11 @@ words.forEach((word) => {
   tl.to('.text', { duration: 1, text: word });
   masterTl.add(tl);
 });
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   const video = document.getElementById('introVideo');
+//   video.currentTime = 58.5; // 시작 위치를 5초로 설정
+// });
 
 //intro 동영상 애니메이션
 gsap.registerPlugin(ScrollTrigger);
@@ -50,6 +70,7 @@ function initVideoAnimation() {
     });
 
     // 스크롤에 따른 너비 조정 애니메이션
+
     gsap.to('.intro__vid', {
       scrollTrigger: {
         trigger: '.intro',

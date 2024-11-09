@@ -425,21 +425,30 @@ legend {
 }
 
 .intro .inner {
-  padding-top: 80px;
+  padding-top: 72px;
+  padding-bottom: 20px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+@media (min-width: 600px) {
+  .intro .inner {
+    padding-bottom: 30px;
+  }
+}
 @media (min-width: 1024px) {
   .intro .inner {
     display: block;
+    padding-top: 80px;
+    padding-bottom: 0;
   }
 }
 .intro__txt {
   padding: 44px 0 36px 0;
   font-size: 14.4vw;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.2rem;
   font-weight: 500;
 }
 @media (min-width: 600px) {
@@ -449,15 +458,18 @@ legend {
 }
 @media (min-width: 1024px) {
   .intro__txt {
-    font-size: 8rem;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: clamp(7.4rem, 6.5vw, 11rem);
   }
 }
 .intro__txt .fixed-txt {
-  letter-spacing: -0.1rem;
   display: flex;
 }
 .intro__txt .fixed-txt .blank {
-  width: 1.5rem;
+  width: 2rem;
 }
 .intro__txt .fixed-txt {
   overflow: hidden;

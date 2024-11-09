@@ -11,20 +11,27 @@
   //padding-top: 80px;
   //height: 80vh;
   .inner {
-    padding-top: 80px;
+    padding-top: 72px;
+    padding-bottom: 20px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include mobileMore {
+      padding-bottom: 30px;
+    }
     @include tabletMore {
       display: block;
+      padding-top: 80px;
+      padding-bottom: 0;
       //flex-direction: row;
     }
   }
   &__txt {
     padding: 44px 0 36px 0;
     font-size: 14.4vw;
-    line-height: 1.2;
+    line-height: 1.1;
+    letter-spacing: -0.2rem;
     //font-size: 4.8rem;
     //letter-spacing: -1.6px;
     //letter-spacing: -0.1rem;
@@ -33,13 +40,19 @@
       font-size: 8rem;
     }
     @include tabletMore {
-      font-size: 8rem;
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(7.4rem, 6.5vw, 11rem);
+      //font-size: 8rem;
     }
     .fixed-txt {
-      letter-spacing: -0.1rem;
+      //opacity: 1;
+      // letter-spacing: -0.2rem;
       display: flex;
       .blank {
-        width: 1.5rem;
+        width: 2rem;
       }
     }
     .fixed-txt {
