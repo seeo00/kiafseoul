@@ -1002,6 +1002,9 @@ legend {
     color: #1d1d1d;
     margin-top: 8px;
   }
+  .sec-card .sec-card__cont .wrapper-accordion .desktop .card__item {
+    transition: all 0.6s ease;
+  }
   .sec-card .sec-card__cont .wrapper-accordion .desktop .card__item::after {
     display: block;
     content: "";
@@ -1040,10 +1043,11 @@ legend {
   }
   .sec-card .sec-card__cont .wrapper-accordion .archive .card__link .top-box {
     position: relative;
-    padding: 50px 24px 24px;
+    padding: 40px 24px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s;
   }
   .sec-card .sec-card__cont .wrapper-accordion .archive .card__link .top-box .left-box {
     display: flex;
@@ -1059,7 +1063,7 @@ legend {
     color: #fff;
   }
   .sec-card .sec-card__cont .wrapper-accordion .gallery {
-    height: 421.3333333333px;
+    height: 66.6666666667%;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -1079,10 +1083,11 @@ legend {
   }
   .sec-card .sec-card__cont .wrapper-accordion .gallery .card__link .top-box {
     position: relative;
-    padding: 50px 24px 24px;
+    padding: 40px 24px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s;
   }
   .sec-card .sec-card__cont .wrapper-accordion .gallery .card__link .top-box .left-box {
     display: flex;
@@ -1098,7 +1103,7 @@ legend {
     font-weight: 500;
   }
   .sec-card .sec-card__cont .wrapper-accordion .seminar {
-    height: 210.6666666667px;
+    height: 33.3333333333%;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -1122,10 +1127,11 @@ legend {
   }
   .sec-card .sec-card__cont .wrapper-accordion .seminar .card__link .top-box {
     position: relative;
-    padding: 50px 24px 24px;
+    padding: 44px 24px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s;
   }
   .sec-card .sec-card__cont .wrapper-accordion .seminar .card__link .top-box .left-box {
     display: flex;

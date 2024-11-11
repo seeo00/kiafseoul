@@ -424,3 +424,54 @@ gsap.from('.arrow-box__arrow', {
     //markers: true,
   },
 });
+
+// 아코디언
+// 모든 카드 요소 선택
+// .wrapper-accordion 내부의 모든 .desktop .card__item 요소 선택
+const cards = document.querySelectorAll('.wrapper-accordion .desktop .card__item');
+
+// 각 카드에 마우스 오버/아웃 이벤트 리스너 추가
+cards.forEach((card, index) => {
+  card.addEventListener('mouseenter', () => {
+    if (index === 0) {
+      // 첫 번째 카드에 마우스 오버 시
+      cards[1].style.height = '20%'; // 두 번째 카드 높이 줄임
+      cards[2].style.height = '10%'; // 세 번째 카드 높이 줄임
+      const secondCardText = cards[1].querySelector('.top-box');
+      const ThirdCardText = cards[2].querySelector('.top-box');
+      secondCardText.style.opacity = '0';
+      ThirdCardText.style.opacity = '0';
+    } else if (index === 1) {
+      // 두 번째 카드에 마우스 오버 시
+      card.style.height = '90%'; // 두 번째 카드 높이 확대
+      cards[2].style.height = '10%'; // 세 번째 카드 높이 줄임
+
+      // 첫 번째 카드의 텍스트 숨김
+      const firstCardText = cards[0].querySelector('.top-box');
+      firstCardText.style.opacity = '0';
+      const ThirdCardText = cards[2].querySelector('.top-box');
+      ThirdCardText.style.opacity = '0';
+    } else if (index === 2) {
+      // 세 번째 카드에 마우스 오버 시
+      card.style.height = '80%'; // 세 번째 카드 높이 확대
+      cards[1].style.height = '90%'; // 두 번째 카드 높이 확대
+
+      // 첫 번째와 두 번째 카드의 텍스트 숨김
+      const firstCardText = cards[0].querySelector('.top-box');
+      const secondCardText = cards[1].querySelector('.top-box');
+      firstCardText.style.opacity = '0';
+      secondCardText.style.opacity = '0';
+    }
+  });
+
+  // 마우스가 카드에서 벗어났을 때 모든 카드의 높이와 텍스트 opacity를 원래 값으로 되돌림
+  card.addEventListener('mouseleave', () => {
+    cards.forEach((c) => {
+      c.style.height = ''; // 원래 높이로 되돌리기
+
+      // 모든 카드 텍스트의 opacity를 다시 1로 설정
+      const cardText = c.querySelector('.top-box');
+      cardText.style.opacity = '1';
+    });
+  });
+});
