@@ -1,13 +1,15 @@
 // sec 전역
 .sec-g {
-  margin-bottom: 20px;
+  margin-top: 20px;
+  //margin-bottom: 40px;
   @include tabletMore {
-    margin-bottom: 24px;
+    margin-top: 24px;
   }
 }
 
 // intro
 .intro {
+  //background-color: lightcoral;
   //padding-top: 80px;
   //height: 80vh;
   .inner {
@@ -56,6 +58,7 @@
       }
     }
     .fixed-txt {
+      //opacity: 0;
       overflow: hidden;
       position: relative;
       //height: 50px;
@@ -72,7 +75,7 @@
       border-radius: 20px;
     }
     @include tabletMore {
-      width: calc((100% - 60px) / 2);
+      //width: calc((100% - 60px) / 2);
       height: calc(100vh - 80px - 24px);
       //width: calc(50% + 0px);
       //width: 50%;
@@ -89,10 +92,18 @@
       overflow: hidden;
     }
   }
+  .fixed-txt span {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  .cursor {
+    opacity: 0;
+  }
 }
 
 // sec-card
 .sec-card {
+  //background-color: lemonchiffon;
   // 공통 card__item 레이아웃
   .card__item {
     overflow: hidden;
@@ -135,19 +146,30 @@
       }
     }
     .news {
+      background-color: $gray-10;
       height: 304px;
       .card__link {
-        padding: 0;
+        position: relative;
+        padding: 0px;
         flex-direction: column;
         .image-box {
-          position: relative;
+          //margin-top: 12px;
+          margin: calc(16px / 2);
+          //margin-top: 12px;
           border-radius: 12px;
-          flex: 3;
+          flex: 2;
           background: url(../../../resources/images/pattern/common/sec-card_news.jpg) no-repeat center / cover;
-          .btn-more::after {
-            position: absolute;
-            bottom: 16px;
-            right: 16px;
+          @include tabletMore {
+            margin: calc(24px / 2);
+          }
+        }
+        .btn-more::after {
+          position: absolute;
+          bottom: 16px;
+          right: 16px;
+          @include tabletMore {
+            right: 24px;
+            bottom: 24px;
           }
         }
         .top-box {
@@ -155,17 +177,24 @@
           display: flex;
           align-items: flex-start;
           flex-direction: column;
-          padding: 0px 4px;
+          padding: 16px 16px 0;
+          margin-bottom: 8px;
+          //padding: 0px 4px;
+          @include tabletMore {
+            padding: 24px 24px 0;
+          }
           .category {
             font-size: 1.3rem;
-            background-color: $gray-10;
+            //border: 1px solid $gray-90;
+            background-color: $gray-90;
             padding: 2px 6px;
             border-radius: 12px;
+            color: $white;
           }
           .title {
             flex: 1;
             padding-top: 8px;
-            padding-bottom: 12px;
+            //padding-bottom: 12px;
             color: $gray-90;
             font-size: 2.4rem;
             font-weight: 500;
@@ -642,7 +671,7 @@
             }
           }
         }
-        .archive-2 {
+        .gallery {
           //overflow: hidden;
           height: calc(632px * 2 / 3);
           width: 100%;
@@ -685,7 +714,7 @@
             }
           }
         }
-        .archive-3 {
+        .seminar {
           //border-radius: 24px;
           //background-color: #eee;
           // height: calc(634px * 1 / 3);
@@ -1118,4 +1147,154 @@
   color: $white;
   content: '\e3d4';
   font-family: 'Phosphor-Bold' !important;
+}
+
+.sec-about {
+  //background-color: lightcyan;
+  .sec-about__cont {
+    position: relative;
+    padding-top: 56px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .arrow-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 36px;
+    @include tabletMore {
+    }
+  }
+  .arrow-box__text {
+    overflow: hidden;
+  }
+  .stepinto {
+    display: block;
+    //font-size: 2.6rem;
+    transform: translateY(100%);
+    font-size: clamp(2.2rem, 6.5vw, 3rem);
+    @include mobileMore {
+      font-size: clamp(3rem, 4.5vw, 4rem);
+    }
+    @include tabletMore {
+      font-size: clamp(4rem, 4vw, 5.2rem);
+    }
+  }
+  .arrow-box__arrow {
+    margin-top: 10px;
+    transform-origin: right top;
+    overflow: hidden;
+    position: relative;
+    padding-top: 20px;
+    padding-right: 20px;
+    @include tabletMore {
+    }
+
+    .arrow-start {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      border-bottom: 4px solid #000;
+      border-left: 4px solid #000;
+      @include mobileMore {
+        width: 50px;
+        height: 50px;
+      }
+      @include tabletMore {
+        width: 70px;
+        height: 70px;
+      }
+    }
+    .arrow-end {
+      width: 70px;
+      height: 4px;
+      background-color: #000;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      transform-origin: left center;
+      transform: translateY(50%) rotate(-45deg);
+      @include mobileMore {
+        width: 96px;
+      }
+      @include tabletMore {
+        width: 120px;
+      }
+    }
+  }
+  .top-text-box {
+    @include mobileMore {
+      font-size: 2rem;
+    }
+    @include tabletMore {
+      font-size: 2.4rem;
+    }
+  }
+  .bottom-text-box {
+    overflow: hidden;
+    margin-top: 20px;
+    //padding: 20px 0 20px 20px;
+    //font-size: 7vw;
+    font-size: clamp(1rem, 7vw, 3.2rem);
+    @include mobileMore {
+      font-size: clamp(3.2rem, 5vw, 4em);
+    }
+    @include tabletMore {
+      font-size: clamp(4rem, 4vw, 6rem);
+      margin-top: 40px;
+    }
+  }
+
+  .bg-highlight {
+    padding: 0px 0.6rem;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+    @include mobileMore {
+      padding: 0px 1.2rem;
+    }
+  }
+
+  .bg-highlight::after {
+    content: '';
+    width: 0;
+    max-width: 100%;
+    height: 100%;
+    background-color: $gray-90;
+    border-radius: 3.6rem;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    z-index: -1;
+    transition: width 0.5s ease;
+  }
+
+  .bg-highlight-active::after {
+    width: 100%;
+  }
+
+  .line-highlight {
+    padding: 0px 4px;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+  }
+
+  .line-highlight::after {
+    display: block;
+    content: '';
+    width: 0; /* 초기 너비를 0으로 설정해 밑줄이 보이지 않도록 */
+    height: 50%;
+    background-color: $gray-30;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    transition: width 0.5s ease; /* 너비 변화 애니메이션 */
+  }
+
+  .line-highlight-active::after {
+    width: 100%; /* 최종 너비 */
+  }
 }

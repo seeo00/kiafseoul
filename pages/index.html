@@ -19,6 +19,10 @@
     <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
     <!-- <link
       rel="stylesheet"
@@ -34,15 +38,17 @@
     <link rel="stylesheet" href="../resources/css/pattern_css.css" />
     <!-- js -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/dist/lenis.min.js"></script>
     <script defer src="../resources/js/ui-swiper.js"></script>
     <script defer src="../resources/js/ui-pattern-script.js"></script>
+    <script defer src="../resources/js/ui-main.js"></script>
     <script defer src="../resources/js/include.js"></script>
   </head>
   <body>
@@ -148,13 +154,36 @@
             </p>
           </div>
           <div class="intro__vid">
-            <video id="introVideo" loop autoplay muted playsinline>
-              <source src="../resources/images/pattern/common/intro_soundcut.mp4" type="video/mp4" />
+            <video id="introVideo" loop muted autoplay playsinline>
+              <source src="../resources/images/pattern/common/intro_newnewenw.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
       </div>
       <main id="container">
+        <div class="sec-g sec-about">
+          <div class="inner">
+            <div class="sec-about__cont">
+              <div class="top-text-box">
+                <p class="top-text-box__text">What makes it stand out?</p>
+              </div>
+              <div class="bottom-text-box">
+                <p class="bottom-text-box__text">
+                  Revealing the <span class="bg-highlight">value of art</span> <br />at
+                  <span class="line-highlight"><strong>Kiaf Seoul</strong></span>
+                </p>
+              </div>
+              <div class="arrow-box">
+                <p class="arrow-box__text"><strong class="stepinto">STEP INTO</strong></p>
+                <div class="arrow-box__arrow">
+                  <div class="arrow-start"></div>
+                  <div class="arrow-end"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="sec-g sec-card">
           <div class="inner">
             <h2 class="sec-card__title blind"></h2>
@@ -165,9 +194,8 @@
                     <span class="category">News</span>
                     <strong class="title">Discovering Meaningful Trends in Art Fairs Today</strong>
                   </div>
-                  <div class="image-box">
-                    <span class="btn-more"><span class="blind">바로가기</span></span>
-                  </div>
+                  <div class="image-box"></div>
+                  <span class="btn-more"><span class="blind">바로가기</span></span>
                 </a>
               </div>
               <div class="card__item since">
@@ -214,9 +242,9 @@
                   ></span>
                 </a>
               </div>
-              <div class="wrapper-archive wrapper-accordion">
+              <div class="wrapper-accordion">
                 <div class="mobile">
-                  <div class="card__item archive-1 archive">
+                  <div class="card__item archive">
                     <a href="#" class="card__link">
                       <span class="category">Archive</span>
                       <div class="bottom-box">
@@ -225,7 +253,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="card__item archive-2 gallery">
+                  <div class="card__item gallery">
                     <a href="#" class="card__link">
                       <span class="category">Gallery</span>
                       <div class="bottom-box">
@@ -234,7 +262,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="card__item archive-3 seminar">
+                  <div class="card__item seminar">
                     <a href="#" class="card__link">
                       <span class="category">Seminar</span>
                       <div class="bottom-box">
@@ -245,7 +273,7 @@
                   </div>
                 </div>
                 <div class="desktop">
-                  <div class="card__item archive-1 archive">
+                  <div class="card__item archive">
                     <a href="#" class="card__link">
                       <div class="bg-box"></div>
                       <div class="top-box">
@@ -257,7 +285,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="card__item archive-2">
+                  <div class="card__item gallery">
                     <a href="#" class="card__link">
                       <div class="bg-box"></div>
                       <div class="top-box">
@@ -269,7 +297,7 @@
                       </div>
                     </a>
                   </div>
-                  <div class="card__item archive-3">
+                  <div class="card__item seminar">
                     <a href="#" class="card__link">
                       <div class="bg-box"></div>
                       <div class="top-box">
