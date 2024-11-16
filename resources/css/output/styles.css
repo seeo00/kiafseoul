@@ -1077,6 +1077,10 @@ legend {
     font-weight: 500;
     color: #fff;
   }
+  .sec-card .sec-card__cont .wrapper-accordion .desktop .seminar .category,
+  .sec-card .sec-card__cont .wrapper-accordion .desktop .seminar .title {
+    color: #1d1d1d;
+  }
   .sec-card .sec-card__cont .wrapper-accordion .desktop .card__link {
     padding: 0;
     display: block;

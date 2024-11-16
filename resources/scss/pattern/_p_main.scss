@@ -637,6 +637,12 @@
             font-weight: 500;
             color: $white;
           }
+          .seminar {
+            .category,
+            .title {
+              color: $gray-90;
+            }
+          }
           // width: 100%;
           // height: 100%;
           .card__link {
@@ -1363,11 +1369,11 @@
       line-height: 1;
     }
     .bg-primary {
-      background-color: #022be9;
+      background-color: $primary;
       color: $white;
     }
     .bg-secondary {
-      background-color: #ff5f00;
+      background-color: $secondary;
     }
   }
   &__canvas {
