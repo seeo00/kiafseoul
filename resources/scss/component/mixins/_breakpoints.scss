@@ -24,6 +24,7 @@
   }
 }
 
+// 1024px 이상
 @mixin tabletMore {
   @media (min-width: $breakpoint-md) {
     @content;
@@ -32,6 +33,18 @@
 
 @mixin desktop {
   @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin desktopMedium {
+  @media (min-width: 1024px) and (max-width: 1439px) {
+    @content;
+  }
+}
+
+@mixin desktopLarge {
+  @media (min-width: 1440px) {
     @content;
   }
 }

@@ -37,6 +37,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../resources/css/pattern_css.css" />
     <!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -139,7 +140,7 @@
             <p class="fixed-txt">
               <span>W</span>
               <span>e</span>
-              <span class="blank"></span>
+              <span class="blank">&nbsp;</span>
               <span>c</span>
               <span>o</span>
               <span>n</span>
@@ -154,16 +155,16 @@
             </p>
           </div>
           <div class="intro__vid">
-            <video id="introVideo" loop muted autoplay playsinline>
-              <source src="../resources/images/pattern/common/intro_newnewenw.mp4" type="video/mp4" />
+            <video id="introVideo" autoplay loop muted playsinline>
+              <source src="../resources/images/pattern/common/intro.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
       </div>
       <main id="container">
-        <div class="sec-g sec-about">
+        <div class="sec-g sec-leadin">
           <div class="inner">
-            <div class="sec-about__cont">
+            <div class="sec-leadin__cont">
               <div class="top-text-box">
                 <p class="top-text-box__text">What makes it stand out?</p>
               </div>
@@ -194,8 +195,9 @@
                     <span class="category">News</span>
                     <strong class="title">Discovering Meaningful Trends in Art Fairs Today</strong>
                   </div>
-                  <div class="image-box"></div>
-                  <span class="btn-more"><span class="blind">바로가기</span></span>
+                  <div class="image-box">
+                    <span class="btn-more"><span class="blind">바로가기</span></span>
+                  </div>
                 </a>
               </div>
               <div class="card__item since">
@@ -229,7 +231,7 @@
                 <a href="#" class="card__link">
                   <div class="image-box"></div>
                   <span class="btn-text"
-                    ><span>See all insights<i class="ph ph-arrow-right"></i></span
+                    ><span class="btn-text__text">See all insights<i class="ph ph-arrow-right"></i></span
                   ></span>
                 </a>
               </div>
@@ -238,7 +240,7 @@
                   <div class="image-box"></div>
                   <strong class="title blind">An Insightful Article Exploring the Future of Contemporary Art</strong>
                   <span class="btn-text"
-                    ><span>See all articles<i class="ph ph-arrow-right"></i></span
+                    ><span class="btn-text__text">See all articles<i class="ph ph-arrow-right"></i></span
                   ></span>
                 </a>
               </div>
@@ -510,6 +512,31 @@
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div class="sec-g sec-tag">
+          <div class="sec-tag__text">
+            <div class="text-box">Beyond the Limits of Art</div>
+          </div>
+          <div class="inner">
+            <div class="sec-tag__cont">
+              <div class="sec-tag__canvas"></div>
+              <span class="tag__item bg-primary">Art</span>
+              <span class="tag__item">Creativity</span>
+              <span class="tag__item bg-primary">Fair</span>
+              <span class="tag__item bg-secondary">Future</span>
+              <span class="tag__item bg-secondary">Vision</span>
+              <span class="tag__item">Expression</span>
+              <span class="tag__item bg-secondary">Trend</span>
+              <span class="tag__item">Culture</span>
+              <span class="tag__item">Perspective </span>
+              <span class="tag__item bg-primary">Contemporary</span>
+              <span class="tag__item">Diversity</span>
+              <span class="tag__item">Innovation</span>
+              <span class="tag__item">Gallery</span>
+              <span class="tag__item">Exhibition</span>
+            </div>
           </div>
         </div>
       </main>

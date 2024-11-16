@@ -16,6 +16,7 @@
     padding-top: 72px;
     padding-bottom: 20px;
     height: 100vh;
+    height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,14 +27,13 @@
       display: block;
       padding-top: 80px;
       padding-bottom: 0;
-      //flex-direction: row;
     }
   }
   &__txt {
     padding: 44px 0 36px 0;
     font-size: 14.4vw;
     line-height: 1.1;
-    letter-spacing: -0.2rem;
+    letter-spacing: -0.1rem;
     //font-size: 4.8rem;
     //letter-spacing: -1.6px;
     //letter-spacing: -0.1rem;
@@ -53,9 +53,6 @@
       //opacity: 1;
       // letter-spacing: -0.2rem;
       display: flex;
-      .blank {
-        width: 2rem;
-      }
     }
     .fixed-txt {
       //opacity: 0;
@@ -69,14 +66,14 @@
     //background-color: #eee;
     //width: 100%;
     height: 100%;
-    align-items: stretch;
+    //align-items: stretch;
     border-radius: 16px;
     @include tablet {
       border-radius: 20px;
     }
     @include tabletMore {
       //width: calc((100% - 60px) / 2);
-      height: calc(100vh - 80px - 24px);
+      height: calc(100vh - 80px - 30px);
       //width: calc(50% + 0px);
       //width: 50%;
       border-radius: 40px;
@@ -152,12 +149,13 @@
         position: relative;
         padding: 0px;
         flex-direction: column;
+        gap: 8px;
         .image-box {
           //margin-top: 12px;
           margin: calc(16px / 2);
           //margin-top: 12px;
           border-radius: 12px;
-          flex: 2;
+          flex: 3;
           background: url(../../../resources/images/pattern/common/sec-card_news.jpg) no-repeat center / cover;
           @include tabletMore {
             margin: calc(24px / 2);
@@ -177,8 +175,9 @@
           display: flex;
           align-items: flex-start;
           flex-direction: column;
+          gap: 8px;
           padding: 16px 16px 0;
-          margin-bottom: 8px;
+          //margin-bottom: 8px;
           //padding: 0px 4px;
           @include tabletMore {
             padding: 24px 24px 0;
@@ -193,15 +192,20 @@
           }
           .title {
             flex: 1;
-            padding-top: 8px;
+            //padding-top: 8px;
             //padding-bottom: 12px;
             color: $gray-90;
             font-size: 2.4rem;
             font-weight: 500;
             line-height: 1.2;
             z-index: 1;
+            display: -webkit-box; /* Flexbox 기반의 텍스트 클램핑 */
+            -webkit-line-clamp: 2; /* 줄 수 제한 */
+            -webkit-box-orient: vertical; /* 텍스트 방향 */
+            overflow: hidden; /* 초과 텍스트 숨김 */
+            text-overflow: ellipsis; /* 말줄임표 추가 */
             @include mobileMore {
-              font-size: 2.8rem;
+              font-size: 2.6rem;
             }
           }
         }
@@ -429,23 +433,31 @@
             width: 100%;
           }
           .btn-text {
-            width: 200px;
-            height: 50px;
+            width: 70%;
+            height: auto;
+            max-width: 180px;
             border-radius: 50px;
             bottom: 10%;
             left: 50%;
             transform: translateX(-50%);
             background-color: rgb(255, 255, 255, 0.8);
           }
+          .btn-text__text {
+            padding: 12px 16px;
+          }
         }
       }
       .livetalk {
         grid-column: 1 / 2;
         grid-row: 3 / 5;
+        .btn-text {
+          right: unset;
+        }
       }
       .article {
         grid-column: 2 / 4;
         grid-row: 3 / 4;
+
         .card__link {
           .blind {
             position: static;
@@ -459,7 +471,8 @@
             position: absolute;
             top: 30%;
             left: 50%;
-            font-size: 3rem;
+            //font-size: 3rem;
+            font-size: clamp(2.4rem, 3.65vw, 2.8rem);
             width: 80%;
             line-height: 1.2;
             font-weight: 500;
@@ -503,23 +516,36 @@
     }
     @include tabletMore {
       // 1024 이상일때 sec-card__cont
-      .btn-more::after {
-        width: 46px;
-        height: 46px;
-        font-size: 2rem;
-      }
+      // .btn-more::after {
+      //   @include desktopMedium {
+      //     width: 36px;
+      //     height: 36px;
+      //   }
+      //   @include desktopLarge {
+      //     width: 42px;
+      //     height: 42px;
+      //     font-size: 2rem;
+      //   }
+      // }
       grid-template-columns: 1fr 1.2fr 0.8fr 1fr;
-      grid-template-rows: 230px 102px 510px 104px;
+      //grid-template-rows: 230px 102px 510px 104px;
+      grid-template-rows:
+        clamp(170px, 15.97vw, 230px)
+        clamp(80px, 7.01vw, 102px)
+        clamp(410px, 35.42vw, 510px)
+        clamp(80px, 7.22vw, 104px);
       gap: 20px;
       .since {
         grid-column: 1 / 2;
         grid-row: 1 / 3;
         .card__link {
           .title {
-            font-size: 6rem !important;
+            font-size: clamp(1.6rem, 4.1666vw, 6rem);
           }
           .desc {
-            font-size: 2rem;
+            @include desktopLarge {
+              font-size: 2rem;
+            }
           }
         }
       }
@@ -531,7 +557,7 @@
             font-size: 1.4rem;
           }
           .title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 1.9444vw, 2.8rem) !important;
           }
         }
       }
@@ -548,7 +574,9 @@
           grid-row: 1 / 4;
         }
         .title {
-          font-size: 2rem;
+          @include desktopLarge {
+            font-size: 1.8rem;
+          }
         }
         .magazine {
           .btn-link {
@@ -560,7 +588,7 @@
           display: flex;
           align-items: center;
           gap: 8px;
-          font-size: 1.4rem;
+          font-size: 1.3rem;
           .blind {
             position: static;
             clip: auto;
@@ -575,8 +603,10 @@
       .article {
         .card__link {
           .btn-text {
-            width: 240px;
-            font-size: 2rem;
+            @include desktopLarge {
+              max-width: 240px;
+              font-size: 1.8rem;
+            }
           }
         }
       }
@@ -589,7 +619,7 @@
         grid-row: 3 / 4;
         .card__link {
           .title {
-            font-size: 4rem;
+            font-size: clamp(2rem, 2.78vw, 4rem);
           }
         }
       }
@@ -598,6 +628,15 @@
         grid-column: 4 / 5;
         grid-row: 2 / 4;
         .desktop {
+          .category {
+            font-size: 1.3rem;
+            color: $white;
+          }
+          .title {
+            font-size: clamp(1.6rem, 1.6667vw, 2.4rem);
+            font-weight: 500;
+            color: $white;
+          }
           // width: 100%;
           // height: 100%;
           .card__link {
@@ -662,15 +701,6 @@
                 flex-direction: column;
               }
             }
-            .category {
-              font-size: 1.4rem;
-              color: $white;
-            }
-            .title {
-              font-size: 2.4rem;
-              font-weight: 500;
-              color: $white;
-            }
           }
         }
         .gallery {
@@ -705,15 +735,6 @@
                 display: flex;
                 flex-direction: column;
               }
-            }
-            .category {
-              font-size: 1.4rem;
-              color: $white;
-            }
-            .title {
-              font-size: 2.4rem;
-              color: $white;
-              font-weight: 500;
             }
           }
         }
@@ -757,13 +778,6 @@
                 flex-direction: column;
               }
             }
-            .category {
-              font-size: 1.4rem;
-            }
-            .title {
-              font-size: 2.4rem;
-              font-weight: 500;
-            }
           }
         }
         .card__link {
@@ -792,14 +806,16 @@
         }
 
         .title {
-          font-size: 2rem;
+          @include desktopLarge {
+            font-size: 1.8rem;
+          }
         }
         .btn-goto,
         .btn-link {
           display: flex;
           align-items: center;
           gap: 8px;
-          font-size: 1.4rem;
+          font-size: 1.3rem;
           .blind {
             position: static; /* 위치를 다시 기본으로 */
             clip: auto; /* 클립 속성 해제 */
@@ -927,7 +943,7 @@
       .desc {
         font-size: 1.3rem;
         @include tabletMore {
-          font-size: 1.4rem;
+          font-size: 1.3rem;
         }
       }
       .title {
@@ -1004,22 +1020,23 @@
     gap: 12px 7px;
     @include mobileMore {
       flex-wrap: nowrap;
-      gap: 12px;
+
+      gap: 16px;
     }
     @include tabletMore {
       gap: 20px;
     }
     .list__item {
       background-color: $gray-10;
-      flex-basis: calc(50% - 6px);
+      flex-basis: calc(50% - 3.5px);
       border-radius: 12px;
       @include mobileMore {
-        flex-basis: calc(25% - 6px);
+        flex-basis: calc(25% - 8px);
         border-radius: 16px;
       }
       @include tabletMore {
-        flex-basis: calc(25% - 12px);
-        border-radius: 24px;
+        flex-basis: calc(25% - 10px);
+        border-radius: 20px;
       }
       .list__link {
         display: block;
@@ -1146,16 +1163,26 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   background-color: $gray-90;
   color: $white;
   content: '\e3d4';
   font-family: 'Phosphor-Bold' !important;
+  @include desktopMedium {
+    width: 34px;
+    height: 34px;
+    font-size: 1.6rem;
+  }
+  @include desktopLarge {
+    width: 42px;
+    height: 42px;
+    font-size: 2rem;
+  }
 }
 
-.sec-about {
+.sec-leadin {
   //background-color: lightcyan;
-  .sec-about__cont {
+  .sec-leadin__cont {
     position: relative;
     padding-top: 56px;
     padding-bottom: 20px;
@@ -1300,5 +1327,99 @@
 
   .line-highlight-active::after {
     width: 100%; /* 최종 너비 */
+  }
+}
+
+.sec-tag {
+  width: 100%;
+  height: 100%;
+  background-color: $gray-90;
+  position: relative;
+  overflow: hidden;
+
+  &__cont {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    @include mobileMore {
+      height: 280px;
+    }
+
+    .tag__item {
+      transform: translate(-9999px, -9999px);
+      position: absolute;
+      background-color: $white;
+      border: 1px solid $gray-90;
+      border-radius: 24px;
+
+      font-size: 20px;
+      font-weight: bold;
+
+      color: $gray-90;
+      display: block;
+      padding: 12px 16px;
+      text-align: center;
+      line-height: 1;
+    }
+    .bg-primary {
+      background-color: #022be9;
+      color: $white;
+    }
+    .bg-secondary {
+      background-color: #ff5f00;
+    }
+  }
+  &__canvas {
+    position: absolute;
+    // top: 0;
+    // left: 0;
+    width: 100%;
+    height: 400px;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    @include mobileMore {
+      height: 240px;
+    }
+  }
+  .sec-tag__text {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    //background-color: $gray-90;
+    overflow: hidden; /* 가로로 넘치는 부분 숨김 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+    .text-box {
+      //position: relative; /* 위치 조정 */
+      //align-items: center; /* 세로 정렬 */
+      //display: inline-block;
+      width: 100%;
+      // animation: main-marquee-ani 30s linear infinite; /* 무한 반복 */
+      animation-timing-function: linear;
+      animation-name: main-marquee-ani;
+      animation-iteration-count: infinite;
+      animation-duration: 20s;
+      animation-direction: normal;
+      animation-timing-function: linear;
+      white-space: nowrap;
+      font-size: 24px;
+      font-weight: 700;
+      font-size: 6rem;
+      padding: 8px 0;
+      color: #fff;
+    }
+
+    @keyframes main-marquee-ani {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
   }
 }

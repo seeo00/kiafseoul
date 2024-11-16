@@ -13,7 +13,7 @@ gsap.ticker.lagSmoothing(0);
 // intro 텍스트 애니메이션
 gsap.registerPlugin(TextPlugin);
 
-const words = ['Future', 'Artists', 'Innovation', 'People', 'Inspiration'];
+const words = ['Future', 'Artists', 'Diversity', 'Ideas', 'Inspiration'];
 
 gsap.set('.cursor', { opacity: 0 });
 let cursor = gsap.to('.cursor', {
@@ -475,3 +475,10 @@ cards.forEach((card, index) => {
     });
   });
 });
+
+///////
+const textBox = document.querySelector('.text-box');
+const originalText = textBox.innerText;
+while (textBox.scrollWidth < window.innerWidth * 2) {
+  textBox.innerText += ' ' + originalText; // 텍스트 반복
+}
