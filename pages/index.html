@@ -16,18 +16,8 @@
     <meta name="twitter:domain" content="사이트 명" />
     <link rel="shortcut icon" href="http://www.mysite.com/favicon.ico" />
     <!-- css -->
-    <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" /> -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
-    /> -->
     <link
       rel="stylesheet"
       as="style"
@@ -39,9 +29,8 @@
     <!-- js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
@@ -49,7 +38,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/dist/lenis.min.js"></script>
     <script defer src="../resources/js/ui-swiper.js"></script>
     <script defer src="../resources/js/ui-pattern-script.js"></script>
-    <script defer src="../resources/js/ui-main.js"></script>
     <script defer src="../resources/js/include.js"></script>
   </head>
   <body>
@@ -138,16 +126,16 @@
         <div class="inner">
           <div class="intro__txt">
             <p class="fixed-txt">
-              <span>W</span>
-              <span>e</span>
-              <span class="blank">&nbsp;</span>
-              <span>c</span>
-              <span>o</span>
-              <span>n</span>
-              <span>n</span>
-              <span>e</span>
-              <span>c</span>
-              <span>t</span>
+              <span class="word">W</span>
+              <span class="word">e</span>
+              <span class="word blank">&nbsp;</span>
+              <span class="word">c</span>
+              <span class="word">o</span>
+              <span class="word">n</span>
+              <span class="word">n</span>
+              <span class="word">e</span>
+              <span class="word">c</span>
+              <span class="word">t</span>
             </p>
             <p class="ani-txt">
               <span class="cursor">_</span>
@@ -156,7 +144,7 @@
           </div>
           <div class="intro__vid">
             <video id="introVideo" autoplay loop muted playsinline>
-              <source src="../resources/images/pattern/common/intro_cut_ctuturur.mp4" type="video/mp4" />
+              <source src="../resources/images/pattern/common/intro.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -165,11 +153,9 @@
         <div class="sec-g sec-leadin">
           <div class="inner">
             <div class="sec-leadin__cont">
-              <div class="top-text-box">
-                <p class="top-text-box__text">What makes it stand out?</p>
-              </div>
-              <div class="bottom-text-box">
-                <p class="bottom-text-box__text">
+              <div class="txt-box">
+                <p class="txt-box__top">What makes it stand out?</p>
+                <p class="txt-box__bottom">
                   Revealing the <span class="bg-highlight">value of art</span> <br />at
                   <span class="line-highlight"><strong>Kiaf Seoul</strong></span>
                 </p>
@@ -187,7 +173,6 @@
 
         <div class="sec-g sec-card">
           <div class="inner">
-            <h2 class="sec-card__title blind"></h2>
             <div class="sec-card__cont">
               <div class="card__item news">
                 <a href="#" class="card__link">
@@ -195,7 +180,9 @@
                     <span class="category">News</span>
                     <strong class="title">Discovering Meaningful Trends in Art Fairs Today</strong>
                   </div>
-                  <div class="image-box">
+
+                  <div class="thumb-box">
+                    <div class="thumbnail"></div>
                     <span class="btn-more"><span class="blind">바로가기</span></span>
                   </div>
                 </a>
@@ -209,7 +196,6 @@
                   </div>
                 </a>
               </div>
-
               <div class="wrapper-link">
                 <div class="card__item map">
                   <a href="https://naver.me/x6PAuQQH" class="card__link"></a>
@@ -229,7 +215,9 @@
               </div>
               <div class="card__item livetalk">
                 <a href="#" class="card__link">
-                  <div class="image-box"></div>
+                  <div class="thumb-box">
+                    <div class="thumbnail"></div>
+                  </div>
                   <span class="btn-text"
                     ><span class="btn-text__text">See all insights<i class="ph ph-arrow-right"></i></span
                   ></span>
@@ -237,7 +225,9 @@
               </div>
               <div class="card__item article">
                 <a href="#" class="card__link">
-                  <div class="image-box"></div>
+                  <div class="thumb-box">
+                    <div class="thumbnail"></div>
+                  </div>
                   <strong class="title blind">An Insightful Article Exploring the Future of Contemporary Art</strong>
                   <span class="btn-text"
                     ><span class="btn-text__text">See all articles<i class="ph ph-arrow-right"></i></span
@@ -312,7 +302,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="wrapper-goto">
                 <div class="card__item frieze">
                   <a href="#" class="card__link">
@@ -473,7 +462,6 @@
 
         <div class="sec-g sec-goto">
           <div class="inner">
-            <h2 class="sec-goto__title blind">바로가기</h2>
             <ul class="sec-goto__list">
               <li class="list__item contact">
                 <a href="#" class="list__link">
@@ -516,10 +504,10 @@
         </div>
 
         <div class="sec-g sec-tag">
-          <div class="sec-tag__text">
-            <div class="text-box">Beyond the Limits of Art</div>
-          </div>
           <div class="inner">
+            <div class="sec-tag__text">
+              <div class="text-box">Beyond the Limits of Art</div>
+            </div>
             <div class="sec-tag__cont">
               <div class="sec-tag__canvas"></div>
               <span class="tag__item bg-primary">Art</span>

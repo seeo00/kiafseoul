@@ -1,4 +1,4 @@
-// LENIS 초기화
+// LENIS 초기화 및 gsap 연동
 const lenis = new Lenis();
 // GSAP의 ScrollTrigger 업데이트와 LENIS의 스크롤 동기화
 lenis.on('scroll', ScrollTrigger.update);
@@ -9,7 +9,6 @@ gsap.ticker.add((time) => {
 // GSAP의 lagSmoothing 비활성화 (부드러운 스크롤을 위해)
 gsap.ticker.lagSmoothing(0);
 
-//
 // intro 텍스트 애니메이션
 gsap.registerPlugin(TextPlugin);
 
@@ -26,10 +25,10 @@ let cursor = gsap.to('.cursor', {
 });
 let masterTl = gsap.timeline({ repeat: -1 }).pause();
 
-gsap.set('.fixed-txt span', { y: '100%', opacity: 0 });
+gsap.set('.fixed-txt .word', { y: '100%', opacity: 0 });
 
 gsap.fromTo(
-  '.fixed-txt span',
+  '.fixed-txt .word',
   { y: '100%', opacity: 1 },
   {
     delay: 2,
@@ -42,106 +41,13 @@ gsap.fromTo(
   }
 );
 
-// gsap.timeline().from('.fixed-txt span', {
-//   delay: 2,
-//   duration: 0.4,
-//   y: '100%',
-//   ease: 'power2.out',
-//   opacity: 1,
-//   stagger: {
-//     amount: 1,
-//     from: 'start',
-//     each: 0.1,
-//   },
-//   onComplete: () => masterTl.play(),
-// });
-
 words.forEach((word) => {
   let tl = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1 });
-  tl.to('.text', { duration: 1, text: word });
+  tl.to('.ani-txt .text', { duration: 1, text: word });
   masterTl.add(tl);
 });
 
-//intro 동영상 애니메이션
-
-// const mediaQuery = window.matchMedia('(min-width: 1024px)');
-
-// // GSAP 애니메이션 초기화 함수
-// function initVideoAnimation() {
-//   // ScrollTrigger 플러그인 등록
-//   gsap.registerPlugin(ScrollTrigger);
-
-//   // 비디오 애니메이션 생성 함수
-//   function createVideoAnimation() {
-//     // 동영상 초기 너비 설정
-//     gsap.set('.intro__vid', {
-//       width: 'calc((100% - 60px) / 2)',
-//       right: '30px',
-//     });
-
-//     // 스크롤에 따른 너비 조정 애니메이션
-
-//     gsap.to('.intro__vid', {
-//       scrollTrigger: {
-//         trigger: '.intro',
-//         //scroller: document.body,
-//         start: 'top top',
-//         scrub: 0.3,
-//         end: 'bottom top',
-//         markers: true,
-//         pin: true,
-//       },
-//       width: 'calc(100% - 60px)',
-//       ease: 'power2.inOut',
-//     });
-//   }
-
-//   // 애니메이션 클린업 함수
-//   function cleanupVideoAnimation() {
-//     // ScrollTrigger 인스턴스 제거
-//     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-
-//     // GSAP 애니메이션 제거
-//     gsap.killTweensOf('.intro__vid');
-
-//     // 비디오 요소의 스타일 초기화
-//     gsap.set('.intro__vid', {
-//       clearProps: 'all', // 모든 GSAP 속성 초기화
-//     });
-//   }
-
-//   // 미디어쿼리 변경 감지 핸들러
-//   function handleMediaQueryChange(e) {
-//     cleanupVideoAnimation(); // 변경이 발생할 때마다 먼저 정리
-
-//     if (e.matches) {
-//       // 데스크톱 사이즈일 때 애니메이션 실행
-//       createVideoAnimation();
-//     } else {
-//       // 태블릿/모바일 사이즈일 때 애니메이션 제거 후 기본 스타일 적용
-//       const videoElement = document.querySelector('.intro__vid');
-//       if (videoElement) {
-//         videoElement.style.width = '100%';
-//         videoElement.style.right = '0';
-//       }
-//     }
-//   }
-
-//   // 초기 실행 및 리사이즈 이벤트 리스너 등록
-//   handleMediaQueryChange(mediaQuery); // 초기 실행
-//   mediaQuery.addEventListener('change', handleMediaQueryChange);
-
-//   // 추가: 리사이즈 이벤트에서 애니메이션 상태 동기화
-//   window.addEventListener('resize', () => {
-//     // 화면 크기 변경 시 애니메이션과 트리거 새로고침
-//     handleMediaQueryChange(mediaQuery);
-//     ScrollTrigger.refresh();
-//   });
-// }
-
-// // DOM이 로드된 후 초기화
-// document.addEventListener('DOMContentLoaded', initVideoAnimation);
-
+// intro 동영상 애니메이션
 gsap.registerPlugin(ScrollTrigger);
 
 const mediaQuery = window.matchMedia('(min-width: 1024px)');
@@ -239,115 +145,23 @@ function initVideoAnimation() {
     }, 250);
   });
 }
-
 // DOM이 로드된 후 초기화
 document.addEventListener('DOMContentLoaded', initVideoAnimation);
 
-// sec-about
-// gsap.registerPlugin(ScrollTrigger);
-
-// const splitTypes = document.querySelectorAll('.sec-about__txt');
-// splitTypes.forEach((char, i) => {
-//   const text = new SplitType(char, { types: ['chars', 'words'] });
-//   gsap.from(text.chars, {
-//     scrollTrigger: {
-//       trigger: char,
-//       start: 'top 80%',
-//       end: 'top 20%',
-//       scrub: true,
-//     },
-//     opacity: 0.2,
-//     stagger: 0.1,
-//   });
-// });
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// const splitTypes = document.querySelectorAll('.sec-about .txt');
-// splitTypes.forEach((char) => {
-//   // SplitType으로 텍스트를 글자 단위로 나누기
-//   const text = new SplitType(char, { types: ['chars', 'words'] });
-
-//   // 각 문자에 대한 스크롤 애니메이션 설정
-//   gsap.from(text.chars, {
-//     scrollTrigger: {
-//       trigger: char,
-//       start: 'top 80%',
-//       end: 'top 30%',
-//       scrub: true,
-//       //markers: true,
-//     },
-//     opacity: 0.2,
-//     stagger: 0.1,
-//   });
-
-//   // 하이라이트 요소의 애니메이션 추가
-//   const highlights = char.querySelectorAll('.highlight');
-//   highlights.forEach((highlight) => {
-//     gsap.to(highlight, {
-//       scrollTrigger: {
-//         trigger: char,
-//         start: 'top 80%',
-//         end: 'top 30%',
-//         scrub: true,
-//         onUpdate: (self) => {
-//           // 스크롤 진행률에 따라 하이라이트 너비를 계산합니다.
-//           const progress = self.progress; // 스크롤 진행률 (0 ~ 1 사이 값)
-//           const maxWidth = 148; // 최대 너비를 150px로 제한
-//           const newWidth = progress * maxWidth; // 진행률에 따른 너비 계산
-//           highlight.style.setProperty('--highlight-width', `${newWidth}px`);
-//         },
-//       },
-//     });
-//   });
-// });
-
-// ScrollTrigger 플러그인을 등록합니다.
-// gsap.registerPlugin(ScrollTrigger);
-
-// // 텍스트가 위로 올라오는 애니메이션
-// gsap.from('.txt', {
-//   scrollTrigger: {
-//     trigger: '.txt',
-//     start: 'top 80%',
-//     end: 'top 50%', // 스크롤 끝나는 위치 추가
-//     toggleActions: 'play none none reverse', // 애니메이션이 끝나고 뒤로 돌아갈 때 초기화
-//     onEnter: () => {
-//       // 첫 번째 애니메이션 (배경 하이라이트 추가)
-//       setTimeout(() => {
-//         document.querySelector('.bg-highlight').classList.add('bg-highlight-active');
-//       }, 500); // 0.5초 딜레이
-
-//       // 두 번째 애니메이션 (밑줄 추가)
-//       setTimeout(() => {
-//         document.querySelector('.line-highlight').classList.add('line-highlight-active');
-//       }, 1500); // 배경 하이라이트 후 추가로 1초 딜레이
-//     },
-//     onLeaveBack: () => {
-//       // 스크롤이 위로 올라가면 클래스를 제거해 초기화
-//       document.querySelector('.bg-highlight').classList.remove('bg-highlight-active');
-//       document.querySelector('.line-highlight').classList.remove('line-highlight-active');
-//     },
-//   },
-//   y: 50,
-//   opacity: 0,
-//   duration: 1,
-//   ease: 'power3.out',
-// });
-
+// sec-leadin 텍스트 애니메이션
 gsap.registerPlugin(ScrollTrigger);
 
-// SplitType으로 텍스트를 한 글자씩 분리합니다.
+// SplitType으로 텍스트를 한 글자씩 분리
 const splitText = new SplitType('.bg-highlight', { types: 'chars' });
 
 gsap.fromTo(
-  '.bottom-text-box__text',
+  '.txt-box__bottom',
   {
     y: '100%', // 시작 위치: 화면 아래
   },
   {
     scrollTrigger: {
-      trigger: '.bottom-text-box__text',
+      trigger: '.txt-box__bottom',
       start: 'top 90%',
       end: 'top 50%',
       toggleActions: 'play none none reverse',
@@ -387,43 +201,34 @@ gsap.fromTo(
       },
     },
     y: 0,
-    //y: 50,
-    //opacity: 0,
     duration: 1,
     ease: 'power3.out',
   }
 );
 
-gsap.fromTo(
-  '.stepinto',
-  {
-    y: '100%', // 시작 위치: 화면 아래
-  },
-  {
-    y: '0%', // 끝 위치: 제자리
-    duration: 0.6,
-    ease: 'power1.out',
-    scrollTrigger: {
-      trigger: '.stepinto',
-      start: 'top 70%',
-      end: 'bottom 80%',
-      toggleActions: 'play none none reverse',
-      //markers: true, // 마커 확인용
-    },
-  }
-);
-
-gsap.from('.arrow-box__arrow', {
-  scale: 0,
-  duration: 0.6,
+// 타임라인 생성
+const tl = gsap.timeline({
   scrollTrigger: {
-    trigger: '.arrow-box__arrow',
-    start: 'top 70%',
+    trigger: '.stepinto', // 타임라인 트리거 기준
+    start: 'top 80%',
     end: 'bottom 80%',
     toggleActions: 'play none none reverse',
-    //markers: true,
+    //markers: true, // 디버깅용 마커
   },
 });
+// 1. .stepinto 애니메이션 추가
+tl.fromTo(
+  '.stepinto',
+  { y: '100%' }, // 시작 위치
+  { y: '0%', duration: 0.6, ease: 'power1.out' } // 끝 위치
+);
+
+// 2. .arrow-box__arrow 애니메이션 추가
+tl.from(
+  '.arrow-box__arrow',
+  { scale: 0, duration: 0.6 },
+  '-=0.3' // 이전 애니메이션이 끝나기 0.3초 전에 시작
+);
 
 // 아코디언
 // 모든 카드 요소 선택
@@ -476,9 +281,341 @@ cards.forEach((card, index) => {
   });
 });
 
-///////
-const textBox = document.querySelector('.text-box');
-const originalText = textBox.innerText;
-while (textBox.scrollWidth < window.innerWidth * 2) {
-  textBox.innerText += ' ' + originalText; // 텍스트 반복
-}
+// sec-tag 텍스트 무한 루프
+document.addEventListener('DOMContentLoaded', () => {
+  const secTagText = document.querySelector('.sec-tag__text'); // 부모 컨테이너
+  const textBox = secTagText.querySelector('.text-box'); // 원본 텍스트 박스
+  const repeatCount = 6; // 반복하고 싶은 개수 (원본 포함)
+
+  for (let i = 1; i < repeatCount; i++) {
+    const clone = textBox.cloneNode(true); // .text-box 복사
+    secTagText.appendChild(clone); // 부모 컨테이너에 추가
+  }
+});
+
+// sec-tag matter js
+(function () {
+  const wallThickness = 80; // 벽의 두께 변수
+  const matterContainer = document.querySelector('.sec-tag__cont');
+  const matterCanvas = document.querySelector('.sec-tag__canvas');
+
+  // 초기 셋팅
+  let Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    World = Matter.World,
+    Composite = Matter.Composite;
+
+  let engine, render, runner;
+  let domBodies = document.querySelectorAll('.tag__item');
+  let matterBodies = {};
+  let leftWall, rightWall, ground;
+
+  function init() {
+    if (render) return; // 이미 초기화된 경우 중복 실행 방지
+
+    engine = Engine.create();
+    render = Render.create({
+      element: matterCanvas,
+      engine: engine,
+      background: 'transparent',
+      options: {
+        width: matterContainer.offsetWidth,
+        height: matterContainer.offsetHeight,
+        wireframes: false,
+      },
+    });
+
+    createBounds();
+    Composite.add(engine.world, [leftWall, rightWall, ground]);
+
+    Render.run(render);
+    runner = Runner.create();
+    Runner.run(runner, engine);
+
+    createMatterBodies();
+    World.add(engine.world, Object.values(matterBodies));
+
+    window.requestAnimationFrame(updateElementPositions);
+  }
+
+  function destroy() {
+    if (!render) return; // 초기화되지 않은 상태에서 호출 방지
+
+    Matter.Render.stop(render);
+    Matter.World.clear(engine.world, false);
+    Matter.Engine.clear(engine);
+
+    render.canvas.remove();
+    render = null; // render를 명시적으로 null로 설정
+  }
+
+  function createBounds() {
+    ground = Bodies.rectangle(
+      matterContainer.offsetWidth / 2,
+      matterContainer.offsetHeight + wallThickness / 2,
+      matterContainer.offsetWidth,
+      wallThickness,
+      { isStatic: true }
+    );
+
+    leftWall = Bodies.rectangle(
+      0 - wallThickness / 2,
+      matterContainer.offsetHeight / 2,
+      wallThickness,
+      matterContainer.offsetHeight * 5,
+      { isStatic: true }
+    );
+
+    rightWall = Bodies.rectangle(
+      matterContainer.offsetWidth + wallThickness / 2,
+      matterContainer.offsetHeight / 2,
+      wallThickness,
+      matterContainer.offsetHeight * 5,
+      { isStatic: true }
+    );
+  }
+
+  function createMatterBodies() {
+    domBodies = document.querySelectorAll('.tag__item');
+    matterBodies = {};
+
+    domBodies.forEach(function (domBody) {
+      const matterBody = Bodies.rectangle(
+        matterContainer.offsetWidth / 2,
+        -matterContainer.offsetHeight,
+        domBody.offsetWidth,
+        domBody.offsetHeight,
+        {
+          chamfer: { radius: domBody.offsetHeight / 2 },
+          restitution: 0.05,
+          density: Math.random() * 5 + 1,
+          angle: Math.random() * 10,
+          friction: 1,
+          frictionAir: Math.random() / 150,
+        }
+      );
+
+      matterBody.sleepThreshold = Infinity; // 슬립 비활성화
+      domBody.id = matterBody.id;
+      matterBodies[matterBody.id] = matterBody;
+    });
+  }
+
+  function updateElementPositions() {
+    domBodies.forEach((domBody) => {
+      const matterBody = matterBodies[domBody.id];
+      if (matterBody) {
+        domBody.style.transform =
+          `translate( ${-domBody.offsetWidth + matterBody.position.x + domBody.offsetWidth / 2}px, ` +
+          `${-domBody.offsetHeight + matterBody.position.y + domBody.offsetHeight / 2}px )` +
+          ` rotate(${matterBody.angle}rad)`;
+      }
+    });
+
+    window.requestAnimationFrame(updateElementPositions);
+  }
+
+  function handleResize() {
+    if (!render || !render.canvas) return; // render 또는 canvas가 없으면 종료
+
+    render.canvas.width = matterContainer.offsetWidth;
+    render.canvas.height = matterContainer.offsetHeight;
+
+    Matter.Render.setPixelRatio(render, window.devicePixelRatio);
+
+    World.clear(engine.world, false);
+    Composite.clear(engine.world, false);
+
+    createBounds();
+    Composite.add(engine.world, [leftWall, rightWall, ground]);
+
+    createMatterBodies();
+    World.add(engine.world, Object.values(matterBodies));
+  }
+
+  ScrollTrigger.create({
+    trigger: '.sec-tag__cont',
+    start: 'top 90%',
+    end: 'bottom 10%',
+    onEnter: () => init(),
+    onLeave: () => destroy(),
+    onEnterBack: () => init(),
+    onLeaveBack: () => destroy(),
+    //markers: true,
+  });
+
+  window.addEventListener('resize', () => {
+    if (render) {
+      handleResize();
+      ScrollTrigger.refresh();
+    }
+  });
+})();
+
+//////////////
+// gsap.registerPlugin(ScrollTrigger);
+
+// // 두 번째 섹션만 애니메이션 추가
+// gsap.fromTo(
+//   '.sec-card',
+//   { opacity: 0, y: 50 },
+//   {
+//     opacity: 1,
+//     y: 0,
+//     duration: 1,
+//     ease: 'power2.out',
+//     scrollTrigger: {
+//       trigger: '.sec-card', // 2섹션을 트리거로 설정
+//       start: 'top 80%', // 2섹션의 상단이 뷰포트 80% 지점에 도달했을 때 시작
+//       end: 'top 20%', // 필요에 따라 설정 가능
+//       toggleActions: 'play reverse play reverse', // 한번만 실행
+//       markers: true, // 디버깅용 마커
+//     },
+//   }
+// );
+
+// sec-card 페이드인 스크롤트리거
+let isActive = false;
+
+ScrollTrigger.create({
+  trigger: '.sec-card',
+  start: 'top 75%',
+  end: 'top 20%',
+  //markers: true,
+  onEnter: () => {
+    if (!isActive) {
+      isActive = true;
+      gsap.to('.sec-card', { opacity: 1, y: 0, duration: 1, ease: 'power2.out' });
+    }
+  },
+  onLeaveBack: () => {
+    if (isActive) {
+      isActive = false;
+      gsap.to('.sec-card', { opacity: 0, y: 50, duration: 1, ease: 'power2.out' });
+    }
+  },
+});
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// ScrollTrigger.matchMedia({
+//   // 600px 이하에서만 동작
+//   '(max-width: 600px)': function () {
+//     gsap.utils.toArray('.btn-text').forEach((element) => {
+//       // 각 .btn-text의 트리거를 찾기 (예: 부모 또는 특정 형제 요소)
+//       let triggerElement = element.closest('.card__item'); // 부모 .card__item을 트리거로 사용
+
+//       gsap.fromTo(
+//         element, // 애니메이션 대상
+//         { opacity: 0 }, // 초기 상태
+//         {
+//           opacity: 1,
+//           //y: 0,
+//           duration: 1,
+//           ease: 'power2.out',
+//           scrollTrigger: {
+//             trigger: triggerElement, // 각각 다른 트리거를 설정
+//             start: 'top 50%', // 트리거가 화면 80%에 도달하면 시작
+//             end: 'top 80%', // 트리거가 화면 50%에 도달하면 끝
+//             markers: true, // 디버깅용 마커
+//           },
+//         }
+//       );
+//     });
+//   },
+// });
+gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.matchMedia({
+  // 600px 이하에서만 동작
+  '(max-width: 600px)': function () {
+    gsap.utils.toArray('.btn-text').forEach((element) => {
+      // 각 .btn-text의 부모 .card__item을 트리거로 설정
+      let triggerElement = element.closest('.card__item');
+
+      let isActive = false; // 상태 플래그
+
+      gsap.fromTo(
+        element, // 애니메이션 대상: .btn-text
+        { opacity: 0 }, // 초기 상태
+        {
+          opacity: 1,
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: triggerElement, // 트리거는 부모 .card__item
+            start: 'top 60%', // 트리거 시작 지점
+            end: 'top 50%', // 트리거 종료 지점
+            markers: true, // 디버깅 마커
+
+            onEnter: () => {
+              if (!isActive) {
+                isActive = true;
+
+                gsap.to(element, {
+                  opacity: 1, // .btn-text를 보여줌
+                  duration: 0.3,
+                  ease: 'linear',
+                });
+              }
+            },
+
+            onLeaveBack: () => {
+              if (isActive) {
+                isActive = false;
+
+                gsap.to(element, {
+                  opacity: 0, // .btn-text를 다시 숨김
+                  duration: 0.3,
+                  ease: 'linear',
+                });
+              }
+            },
+          },
+        }
+      );
+    });
+  },
+});
+
+//// header
+// let lastScrollY = 0;
+// const header = document.querySelector('#header');
+
+// window.addEventListener('scroll', () => {
+//   const currentScrollY = window.scrollY;
+
+//   if (currentScrollY > lastScrollY) {
+//     // 스크롤을 내릴 때 헤더 숨기기
+//     header.style.transform = 'translateY(-100%)';
+//   } else {
+//     // 스크롤을 올릴 때 헤더 보이기
+//     header.style.transform = 'translateY(0)';
+//   }
+
+//   lastScrollY = currentScrollY;
+// });
+let lastScrollY = 0;
+const header = document.querySelector('#header');
+
+// 스크롤 이벤트 핸들러
+const handleScroll = () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY) {
+    // 스크롤을 내릴 때 헤더 숨기기
+    header.style.transform = 'translateY(-100%)';
+  } else {
+    // 스크롤을 올릴 때 헤더 보이기
+    header.style.transform = 'translateY(0)';
+  }
+
+  lastScrollY = currentScrollY;
+};
+
+// Lodash의 throttle 적용 (200ms 간격으로 실행 제한)
+const throttledHandleScroll = _.throttle(handleScroll, 200);
+
+window.addEventListener('scroll', throttledHandleScroll);

@@ -48,9 +48,9 @@
 
 // header
 #header {
-  //background-color: lightblue;
-  background-color: $white;
-  //position: relative;
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+  background-color: rgba(255, 255, 255, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -159,9 +159,16 @@
       @include tabletMore {
         font-size: 2rem;
       }
+      a {
+        //transition: all 0.3s;
+      }
+      a:hover {
+        //font-weight: bold;
+        text-decoration: underline;
+      }
     }
   }
-  .footer__copyright {
+  .copyright {
     font-size: 6.4rem;
     font-weight: 500;
     line-height: 1;
@@ -176,13 +183,19 @@
   }
   .btn-top {
     padding-top: 4px;
+    &:hover {
+      &::after {
+        background-image: url(../../../resources/images/pattern/common/btn-top_on.svg);
+      }
+    }
   }
   .btn-top::after {
     display: block;
     content: '';
     width: 40px;
     height: 40px;
-    background: url(../../../resources/images/pattern/common/la_arrow-up.svg) no-repeat center / contain;
+    background: url(../../../resources/images/pattern/common/btn-top.svg) no-repeat center / contain;
+    transition: all 0.3s;
     @include tabletMore {
       width: 52px;
       height: 52px;
