@@ -547,8 +547,8 @@ ScrollTrigger.matchMedia({
           scrollTrigger: {
             trigger: triggerElement, // 트리거는 부모 .card__item
             start: 'top 60%', // 트리거 시작 지점
-            end: 'top 50%', // 트리거 종료 지점
-            markers: true, // 디버깅 마커
+            end: 'top 60%', // 트리거 종료 지점
+            //markers: true, // 디버깅 마커
 
             onEnter: () => {
               if (!isActive) {
