@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>about</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="페이지 제목" />
+    <meta property="og:description" content="페이지 설명" />
+    <meta property="og:image" content="http://www.mysite.com/article/article1_featured_image.jpg" />
+    <meta property="og:url" content="http://www.mysite.com/article/article1.html" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="페이지 제목" />
+    <meta name="twitter:description" content="페이지 설명" />
+    <meta name="twitter:image" content="http://www.mysite.com/article/article1.html" />
+    <meta name="twitter:domain" content="사이트 명" />
+    <link rel="shortcut icon" href="http://www.mysite.com/favicon.ico" />
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../resources/css/pattern_css.css" />
+    <!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/dist/lenis.min.js"></script>
+    <script defer src="../resources/js/ui-swiper.js"></script>
+    <script defer src="../resources/js/ui-pattern-script.js"></script>
+    <script defer src="../resources/js/include.js"></script>
+  </head>
+  <body class="about">
+    <div id="skip-nav">
+      <a href="#gnb">메뉴 바로가기</a>
+      <a href="#container">본문 바로가기</a>
+    </div>
+    <div id="wrap">
+      <header id="header">
+        <div class="inner">
+          <h1 id="logo">
+            <a href="./index.html" class="logo__link">
+              <span class="blind">키아프서울</span>
+            </a>
+          </h1>
+          <div class="util">
+            <button class="lang">
+              <span class="blind">영어로 보기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <g transform="rotate(-90, 12, 12)">
+                  <circle cx="12" cy="12" r="11" stroke-width="1.7" fill="none" />
+                  <line x1="1" y1="12" x2="23" y2="12" stroke-width="1.7" />
+                  <ellipse cx="12" cy="12" rx="11" ry="5.5" stroke-width="1.7" fill="none" />
+                  <line x1="12" y1="1" x2="12" y2="23" stroke-width="1.7" />
+                </g>
+              </svg>
+            </button>
+            <button class="all-menu">
+              <span class="blind">전체메뉴</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line class="line1" x1="2" y1="3" x2="22" y2="3"></line>
+                <line class="line2" x1="2" y1="12" x2="16" y2="12"></line>
+                <line class="line3" x1="2" y1="21" x2="22" y2="21"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+      <!-- active 추가시 활성화 -->
+      <nav id="nav-all" class="">
+        <div class="inner">
+          <ul class="gnb gnb_left">
+            <li><a href="./about.html">About</a></li>
+            <li><a href="#">Insight</a></li>
+            <li><a href="#">Archive</a></li>
+          </ul>
+          <ul class="gnb gnb_right">
+            <li><a href="#">News</a></li>
+            <li><a href="#">Partner</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <main id="container">
+        <section class="sec-g sec-about">
+          <div class="inner">
+            <h2 class="sec-about__title">Realizing the Temporal Value of Art</h2>
+            <p class="sec-about__subtitle">현대미술의 가치를 발견하는 글로벌 아트페어</p>
+            <p class="sec-about__desc">
+              Kiaf SEOUL은 2002년 처음 문을 연 한국 최초의 국제아트페어입니다. 전 세계 갤러리들이 참가하는 Kiaf SEOUL은
+              글로벌 아트 시티인 서울을 중심으로 빠르게 성장하고 있습니다. Kiaf SEOUL은 20여년의 역사를 바탕으로
+              한국미술시장과 해외미술시장을 잇는 매개체이며 기존의 예술과 현대의 예술을 한곳에 담는 글로벌 플랫폼으로서
+              세계미술인의 축제입니다.
+            </p>
+          </div>
+          <div class="sec-about__visual"></div>
+        </section>
+        <section class="sec-g sec-history">
+          <div class="inner">
+            <h2 class="sec-history__title">History</h2>
+            <p class="sec-history__subtitle">
+              아시아를 넘어 글로벌 아트 마켓을 주도하며 현대미술의 새 지평을 열어갑니다.
+            </p>
+            <div class="sec-history__timeline">
+              <button class="timeline__btn">2020년대</button>
+              <ul class="timeline__list">
+                <li>
+                  <div class="timeline__item item__2023">
+                    <strong class="title">2023년</strong>
+                    <div class="right-box">
+                      <div class="thumb-box"></div>
+                      <div class="desc-box">
+                        <p class="desc">
+                          22회를 맞이한 Kiaf SEOUL 2023에는 20개국 210개 갤러리가 참가했고 8만 명 이상의 관람객이
+                          방문하였다. 지난해 SETEC에서 열렸던 Kiaf PLUS는 코엑스 그랜드볼룸으로 장소를 옮겨 다시 한 번
+                          젊은 갤러리와 작가들을 중심으로 동시대 미술을 선보였다.
+                        </p>
+                        <button class="btn-more">더보기</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline__item item__2022">
+                    <strong class="title">2022년</strong>
+                    <div class="right-box">
+                      <div class="thumb-box"></div>
+                      <div class="desc-box">
+                        <p class="desc">
+                          Kiaf SEOUL 17 개국 163 개 갤러리, Kiaf PLUS 10 개국 73 개 갤러리로 역대 가장 많은 236 개
+                          갤러리가 참여하여 아시아 최대 규모의 아트페어를 보여주었다. Frieze 와의 동시 개최를 통해
+                          서울이 아시아의 가장 중요한 아트 허브로 발돋움할 수 있는 발판을 만들었다.
+                        </p>
+                        <button class="btn-more">더보기</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline__item item__2021">
+                    <strong class="title">2021년</strong>
+                    <div class="right-box">
+                      <div class="thumb-box"></div>
+                      <div class="desc-box">
+                        <p class="desc">
+                          20 주년을 맞이한 Kiaf SEOUL 2021 은 전세계 170 개 갤러리가 작품을 선보였다. 5 일간 약 8 만
+                          8천여명의 관람객이 방문하였으며 총 650 억원의 거래액을 달성하였다. BI (Brand Identity)리뉴얼을
+                          통해 새로운 로고를 선보였으며, 20 주년을 기념하여 인천공항과 협업한 “We Connect, Art & Future,
+                          Kiaf and INCHEON AIRPORT” 특별전을 개최하였다.
+                        </p>
+                        <button class="btn-more">더보기</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline__item item__2020">
+                    <strong class="title">2020년</strong>
+                    <div class="right-box">
+                      <div class="thumb-box"></div>
+                      <div class="desc-box">
+                        <p class="desc">
+                          22회를 맞이한 Kiaf SEOUL 2023에는 20개국 210개 갤러리가 참가했고 8만 명 이상의 관람객이
+                          방문하였다. 지난해 SETEC에서 열렸던 Kiaf PLUS는 코엑스 그랜드볼룸으로 장소를 옮겨 다시 한 번
+                          젊은 갤러리와 작가들을 중심으로 동시대 미술을 선보였다.
+                        </p>
+                        <button class="btn-more">더보기</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer id="footer" include-html="./layout/footer.html"></footer>
+    </div>
+  </body>
+</html>

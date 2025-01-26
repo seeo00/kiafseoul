@@ -1,180 +1,383 @@
-// 사이트 컨텐츠 내용
-:root {
-  --swiper-theme-color: red;
+// 서브페이지 스타일
+// about, story page
+
+.about,
+.story {
+  #container {
+    padding-top: 72px;
+    @include tabletMore {
+      padding-top: 80px;
+    }
+  }
+  .sec-g {
+    margin-top: 40px;
+    @include tabletMore {
+      margin-top: 60px;
+    }
+  }
+}
+.about {
+  .sec-about {
+    &__title {
+      font-size: 3rem;
+      @include mobileMore {
+        font-size: 3.6rem;
+        //width: 460px;
+      }
+      @include tabletMore {
+        font-size: 5.2rem;
+        width: 100%;
+      }
+    }
+    &__subtitle {
+      font-size: 1.8rem;
+      font-weight: 500;
+      word-break: keep-all;
+      padding-top: 4px;
+      @include mobileMore {
+        font-size: 2rem;
+      }
+      @include tabletMore {
+        font-size: 2.4rem;
+      }
+    }
+    &__desc {
+      font-size: 1.2rem;
+      font-weight: 300;
+      padding-top: 30px;
+      padding-bottom: 40px;
+      @include mobileMore {
+        font-size: 1.4rem;
+        width: 75%;
+        margin-left: auto;
+      }
+      @include tabletMore {
+        font-size: 1.6rem;
+        padding: 80px 0;
+        width: 50%;
+      }
+    }
+    &__visual {
+      width: 100%;
+      height: 390px;
+      background: url(../../../resources/images/pattern/common/about-hero.jpg) no-repeat 0 0 / cover;
+      background-position: center;
+      @include mobileMore {
+        height: 460px;
+      }
+    }
+  }
+  .sec-history {
+    &__title {
+      font-size: 3rem;
+      @include mobileMore {
+        font-size: 3.6rem;
+      }
+      @include tabletMore {
+        font-size: 5.2rem;
+      }
+    }
+    &__subtitle {
+      font-size: 1.8rem;
+      font-weight: 500;
+      word-break: keep-all;
+      padding-top: 4px;
+      @include mobileMore {
+        font-size: 2rem;
+      }
+      @include tabletMore {
+        font-size: 2.4rem;
+      }
+    }
+    &__timeline {
+      padding: 40px 0;
+
+      .timeline__btn {
+        position: relative;
+        width: 100%;
+        height: 44px;
+        padding: 8px 20px;
+        background-color: $gray-10;
+        border: none;
+        cursor: pointer;
+        border-radius: 44px;
+        text-align: left;
+        @include mobileMore {
+          width: 167px;
+        }
+        &::after {
+          position: absolute;
+          top: 8px;
+          right: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          width: 24px;
+          height: 24px;
+          color: $gray-90;
+          content: '\E136';
+          font-family: 'Phosphor-Bold' !important;
+        }
+      }
+      .timeline__list {
+        padding-top: 40px;
+        li {
+          position: relative;
+          padding: 0 0 32px 20px;
+          @include mobileMore {
+            padding: 0 0 80px 50px;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            top: 16px;
+            left: 0px;
+            //bottom: -13px;
+            width: 8px;
+            height: 8px;
+            background-color: $gray-90;
+            border-radius: 50%;
+          }
+          &::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 3px;
+            bottom: -13px;
+            width: 1px;
+            background-color: $gray-30;
+          }
+          &:last-child::before {
+            content: none; // 마지막 li의 ::before 숨기기
+          }
+        }
+        .item__2023 .thumb-box {
+          background: url(../../../resources/images/pattern/common/about-history_1.jpg) no-repeat 0 0 / cover;
+        }
+        .item__2022 .thumb-box {
+          background: url(../../../resources/images/pattern/common/about-history_2.jpg) no-repeat 0 0 / cover;
+        }
+        .item__2021 .thumb-box {
+          background: url(../../../resources/images/pattern/common/about-history_3.jpg) no-repeat 0 0 / cover;
+        }
+        .item__2020 .thumb-box {
+          background: url(../../../resources/images/pattern/common/about-history_4.jpg) no-repeat 0 0 / cover;
+        }
+        .timeline__item {
+          @include mobileMore {
+            display: flex;
+            gap: 56px;
+          }
+          .title {
+            font-size: 2.4rem;
+            font-weight: 500;
+            //width: 100%;
+            flex-shrink: 0;
+            @include mobileMore {
+              width: 80px;
+            }
+          }
+          .right-box {
+            @include tabletMore {
+              display: flex;
+              gap: 20px;
+            }
+          }
+          .thumb-box {
+            width: 100%;
+            height: 218px;
+            margin-top: 28px;
+
+            @include mobileMore {
+              height: 268px;
+              margin-top: 0;
+            }
+            @include tabletMore {
+              width: 50%;
+              min-width: 480px;
+              height: 300px;
+            }
+          }
+          .desc-box {
+            @include tabletMore {
+              width: 50%;
+            }
+          }
+          .desc {
+            padding-top: 24px;
+            font-size: 1.4rem;
+            @include tabletMore {
+              padding-top: 0;
+              font-size: 1.6rem;
+            }
+          }
+          .btn-more {
+            margin-top: 20px;
+            width: 100px;
+            height: 40px;
+            background-color: $gray-10;
+            border-radius: 40px;
+            position: relative;
+            text-align: left;
+            font-size: 1.4rem;
+            padding: 8px 16px;
+            &::after {
+              position: absolute;
+              top: 8px;
+              right: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.2rem;
+              width: 24px;
+              height: 24px;
+              color: $gray-90;
+              content: '\E136';
+              font-family: 'Phosphor-Bold' !important;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-// 전역 스타일
-.swiper {
-  width: 100%;
-  height: 100%;
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: $white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      display: block;
+.story {
+  #container {
+    .inner {
+      @include mobileMore {
+        max-width: 690px;
+        margin: 0 auto;
+      }
+      @include tabletMore {
+        max-width: 940px;
+      }
+    }
+  }
+  .sec-story {
+    .sec-story__title {
+      .category {
+        font-size: 1.4rem;
+        font-weight: 300;
+      }
+      .title {
+        font-size: 3.2rem;
+        margin-top: 10px;
+        @include mobileMore {
+          font-size: 4rem;
+        }
+      }
+      .bottom-box {
+        margin-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .meta {
+          font-size: 1.4rem;
+          font-weight: 300;
+          @include mobileMore {
+            font-size: 1.6rem;
+          }
+        }
+        .link-btn {
+          &::after {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            width: 36px;
+            height: 36px;
+            background-color: $gray-10;
+            border-radius: 50%;
+            content: '\E408';
+            font-family: 'Phosphor-Bold' !important;
+          }
+        }
+      }
+    }
+    .sec-story__visual {
+      margin-top: 40px;
+      img {
+        //margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        //max-width: 1920px;
+        max-height: 810px;
+        object-fit: cover;
+        display: block;
+      }
+    }
+    .sec-story__cont {
+      margin-top: 84px;
+      img {
+        width: 100%;
+        height: 100%;
+        margin: 40px 0;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+      .btn-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 120px;
+        .btn-list {
+          display: block;
+          width: 150px;
+          height: 50px;
+          border-radius: 50px;
+          text-align: center;
+          line-height: 50px;
+          background-color: $gray-10;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .sec-story__swiper {
+    margin-top: 120px;
+    //background-color: #eee;
+    padding: 60px 0;
+    .swiper__title {
+      font-size: 2.6rem;
+    }
+    .swiper {
       width: 100%;
       height: 100%;
+      padding-top: 36px;
+    }
+    .swiper-slide {
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 280px;
       object-fit: cover;
+      //background-position: center;
     }
-    a {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    display: none;
-  }
-  .swiper-button-next::before,
-  .swiper-button-prev::before {
-    @include lineAwesome;
-    font-size: 3rem;
-    color: $black;
-    opacity: 0.5;
-  }
-  .swiper-button-next::before {
-    content: '\f138';
-  }
-  .swiper-button-prev::before {
-    content: '\f137';
-  }
-}
-
-.slide-intro {
-  .swiper-slide {
-    position: relative;
-    &.swiper-slide-active {
-      .text-area {
-        opacity: 1;
-        transform: translate(-50%, -50%);
+    .txt-box {
+      padding: 20px;
+      text-align: left;
+      .title {
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+      .desc {
+        font-size: 1.4rem;
+        font-weight: 300;
+        margin-top: 8px;
       }
     }
-
-    img {
-      object-position: 50% 100%;
-    }
-    .text-area {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, 0);
-      width: 70%;
-      max-width: 400px;
-      opacity: 0;
-      transition: all 0.5s;
-      // .text-area__tit
-      &__tit {
-        font-size: 3rem;
-        color: $gray-90;
-        font-family: 'GmarketSansMedium';
-        font-weight: $font-medium;
-      }
-      &__cont {
-        color: $gray-70;
-      }
-      &__goto {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 7px 20px;
-        background: $primary;
-        color: $white;
-      }
-    }
-    // img {
-    //   height: 50vh;
-    // }
-  }
-  .swiper-pagination {
-    display: none;
-  }
-}
-
-// tablet
-// @media screen and (min-width: 600px) {
-//   .slide-intro .swiper-slide img {
-//     height: 70vh;
-//   }
-// }
-
-// // desktop
-// @media screen and (min-width: 1024px) {
-//   .slide-intro {
-//     .swiper-slide {
-//       img {
-//         height: 90vh;
-//       }
-//       .text-area {
-//         width: 100%;
-//         max-width: none;
-//         text-align: left;
-//       }
-//       .text-area__tit {
-//         font-size: 6rem;
-//       }
-//       .text-area__cont {
-//         font-size: 2rem;
-//       }
-//       .text-area__goto {
-//         margin-top: 30px;
-//       }
-//     }
-//     .swiper-pagination {
-//       display: block;
-//     }
-//     .swiper-button-next,
-//     .swiper-button-prev {
-//       display: none;
-//     }
-//   }
-// }
-
-.slide-studio {
-  //overflow: hidden;
-  overflow: visible;
-  width: 100%;
-  //width: 80%;
-  margin-left: 0;
-  // @include mobileMore {
-  //   width: 90%;
-  //   //margin-left: 3rem;
-  // }
-  // @include tabletMore {
-  //   width: 90%;
-  //   //margin-left: 30px;
-  // }
-  .swiper-pagination {
-    bottom: -50px;
-  }
-}
-
-.sec-slide__tit {
-  width: 100%;
-  @include tabletMore {
-    width: 320px;
-  }
-}
-.sec-slide__cont {
-  overflow: visible;
-  @include tabletMore {
-    overflow: hidden;
-  }
-}
-.cont-item {
-  //min-width: 300px;
-  //max-width: 300px;
-
-  @include mobile {
-    max-width: 300px;
-  }
-  @include mobileMore {
-    width: 300px !important;
-  }
-  @include tabletMore {
-    width: 320px !important;
   }
 }

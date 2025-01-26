@@ -1,2 +1,120 @@
 // 사이트 공통 스타일
-// text-align: center;
+
+:root {
+  --swiper-theme-color: #022be9;
+}
+
+// default gray 배경색
+.bg-gray {
+  background-color: $gray-10;
+}
+
+// sec 전역
+.sec-g {
+  overflow: hideen;
+  margin-top: 20px;
+  @include tabletMore {
+    margin-top: 24px;
+  }
+}
+
+// swiper 전역 스타일
+.swiper {
+  width: 100%;
+  height: 100%;
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none;
+  }
+  .swiper-button-next::before,
+  .swiper-button-prev::before {
+    @include lineAwesome;
+    font-size: 3rem;
+    color: $black;
+    opacity: 0.5;
+  }
+  .swiper-button-next::before {
+    content: '\f138';
+  }
+  .swiper-button-prev::before {
+    content: '\f137';
+  }
+}
+
+// 버튼 스타일
+.btn-goto::after {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  width: 24px;
+  height: 24px;
+  background-color: $gray-90;
+  border-radius: 50%;
+  color: $white;
+  content: '\E092';
+  font-family: 'Phosphor-Bold' !important;
+}
+.btn-link::after {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  width: 24px;
+  height: 24px;
+  background-color: $gray-90;
+  border-radius: 50%;
+  color: $white;
+  content: '\E06C';
+  font-family: 'Phosphor-Bold' !important;
+}
+.btn-more {
+  &::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    background-color: $gray-90;
+    color: $white;
+    content: '\e3d4';
+    font-family: 'Phosphor-Bold' !important;
+    transition: all 0.3s ease; /* 트랜지션 추가 */
+    @include desktopMedium {
+      width: 34px;
+      height: 34px;
+      font-size: 1.6rem;
+    }
+    @include desktopLarge {
+      width: 42px;
+      height: 42px;
+      font-size: 2rem;
+    }
+  }
+  &:hover::after {
+    transform: rotate(180deg);
+  }
+}

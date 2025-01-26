@@ -1,13 +1,75 @@
-// LENIS 초기화 및 gsap 연동
+// header
+const menuTimeline = gsap.timeline({ paused: true, reversed: true });
+
+menuTimeline
+  // 첫 번째 선 애니메이션 (아래로 이동, 45도 회전)
+  .to('.line1', {
+    y: 9, // 아래로 이동
+    scaleX: Math.sqrt(2),
+    rotation: 45, // 45도 회전
+    duration: 0.3,
+    transformOrigin: 'center center', // 회전 기준점 설정
+  })
+  // 두 번째 선 애니메이션 (사라짐)
+  .to(
+    '.line2',
+    {
+      opacity: 0, // 사라짐
+      duration: 0.3,
+    },
+    '<' // 이전 애니메이션과 동시에 실행
+  )
+  // 세 번째 선 애니메이션 (위로 이동, -45도 회전)
+  .to(
+    '.line3',
+    {
+      y: -9, // 위로 이동
+      scaleX: Math.sqrt(2),
+      rotation: -45, // -45도 회전
+      duration: 0.3,
+      transformOrigin: 'center center', // 회전 기준점 설정
+    },
+    '<'
+  );
+
+// Lenis 초기화
 const lenis = new Lenis();
-// GSAP의 ScrollTrigger 업데이트와 LENIS의 스크롤 동기화
+
+// 메뉴 토글 함수
+function toggleMenu() {
+  // 애니메이션 실행
+  menuTimeline.reversed() ? menuTimeline.play() : menuTimeline.reverse();
+
+  // #nav-all 요소에 .active 클래스 토글
+  const navElement = document.querySelector('#nav-all');
+  if (navElement) {
+    // active 클래스 토글
+    const isActive = navElement.classList.toggle('active');
+
+    if (isActive) {
+      lenis.stop(); // Lenis 스크롤 비활성화
+    } else {
+      lenis.start(); // Lenis 스크롤 활성화
+    }
+  }
+}
+
+// 버튼에 클릭 이벤트 리스너 추가
+const button = document.querySelector('.all-menu');
+if (button) {
+  button.addEventListener('click', toggleMenu);
+} else {
+  console.error('.all-menu 버튼을 찾을 수 없습니다.');
+}
+
+// Lenis와 GSAP ScrollTrigger 동기화
 lenis.on('scroll', ScrollTrigger.update);
-// GSAP 타이커에 LENIS의 프레임을 추가
+
 gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
 });
-// GSAP의 lagSmoothing 비활성화 (부드러운 스크롤을 위해)
-gsap.ticker.lagSmoothing(0);
+
+gsap.ticker.lagSmoothing(0); // GSAP lagSmoothing 비활성화
 
 // intro 텍스트 애니메이션
 gsap.registerPlugin(TextPlugin);
@@ -454,28 +516,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-//////////////
-// gsap.registerPlugin(ScrollTrigger);
-
-// // 두 번째 섹션만 애니메이션 추가
-// gsap.fromTo(
-//   '.sec-card',
-//   { opacity: 0, y: 50 },
-//   {
-//     opacity: 1,
-//     y: 0,
-//     duration: 1,
-//     ease: 'power2.out',
-//     scrollTrigger: {
-//       trigger: '.sec-card', // 2섹션을 트리거로 설정
-//       start: 'top 80%', // 2섹션의 상단이 뷰포트 80% 지점에 도달했을 때 시작
-//       end: 'top 20%', // 필요에 따라 설정 가능
-//       toggleActions: 'play reverse play reverse', // 한번만 실행
-//       markers: true, // 디버깅용 마커
-//     },
-//   }
-// );
-
 // sec-card 페이드인 스크롤트리거
 let isActive = false;
 
@@ -498,34 +538,6 @@ ScrollTrigger.create({
   },
 });
 
-// gsap.registerPlugin(ScrollTrigger);
-
-// ScrollTrigger.matchMedia({
-//   // 600px 이하에서만 동작
-//   '(max-width: 600px)': function () {
-//     gsap.utils.toArray('.btn-text').forEach((element) => {
-//       // 각 .btn-text의 트리거를 찾기 (예: 부모 또는 특정 형제 요소)
-//       let triggerElement = element.closest('.card__item'); // 부모 .card__item을 트리거로 사용
-
-//       gsap.fromTo(
-//         element, // 애니메이션 대상
-//         { opacity: 0 }, // 초기 상태
-//         {
-//           opacity: 1,
-//           //y: 0,
-//           duration: 1,
-//           ease: 'power2.out',
-//           scrollTrigger: {
-//             trigger: triggerElement, // 각각 다른 트리거를 설정
-//             start: 'top 50%', // 트리거가 화면 80%에 도달하면 시작
-//             end: 'top 80%', // 트리거가 화면 50%에 도달하면 끝
-//             markers: true, // 디버깅용 마커
-//           },
-//         }
-//       );
-//     });
-//   },
-// });
 gsap.registerPlugin(ScrollTrigger);
 
 ScrollTrigger.matchMedia({
@@ -579,43 +591,3 @@ ScrollTrigger.matchMedia({
     });
   },
 });
-
-//// header
-// let lastScrollY = 0;
-// const header = document.querySelector('#header');
-
-// window.addEventListener('scroll', () => {
-//   const currentScrollY = window.scrollY;
-
-//   if (currentScrollY > lastScrollY) {
-//     // 스크롤을 내릴 때 헤더 숨기기
-//     header.style.transform = 'translateY(-100%)';
-//   } else {
-//     // 스크롤을 올릴 때 헤더 보이기
-//     header.style.transform = 'translateY(0)';
-//   }
-
-//   lastScrollY = currentScrollY;
-// });
-let lastScrollY = 0;
-const header = document.querySelector('#header');
-
-// 스크롤 이벤트 핸들러
-const handleScroll = () => {
-  const currentScrollY = window.scrollY;
-
-  if (currentScrollY > lastScrollY) {
-    // 스크롤을 내릴 때 헤더 숨기기
-    header.style.transform = 'translateY(-100%)';
-  } else {
-    // 스크롤을 올릴 때 헤더 보이기
-    header.style.transform = 'translateY(0)';
-  }
-
-  lastScrollY = currentScrollY;
-};
-
-// Lodash의 throttle 적용 (200ms 간격으로 실행 제한)
-const throttledHandleScroll = _.throttle(handleScroll, 200);
-
-window.addEventListener('scroll', throttledHandleScroll);

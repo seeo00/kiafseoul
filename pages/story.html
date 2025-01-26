@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>story</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="페이지 제목" />
+    <meta property="og:description" content="페이지 설명" />
+    <meta property="og:image" content="http://www.mysite.com/article/article1_featured_image.jpg" />
+    <meta property="og:url" content="http://www.mysite.com/article/article1.html" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="페이지 제목" />
+    <meta name="twitter:description" content="페이지 설명" />
+    <meta name="twitter:image" content="http://www.mysite.com/article/article1.html" />
+    <meta name="twitter:domain" content="사이트 명" />
+    <link rel="shortcut icon" href="http://www.mysite.com/favicon.ico" />
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../resources/css/pattern_css.css" />
+    <!-- js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@latest/dist/lenis.min.js"></script>
+    <script defer src="../resources/js/ui-swiper.js"></script>
+    <script defer src="../resources/js/ui-pattern-script.js"></script>
+    <script defer src="../resources/js/include.js"></script>
+  </head>
+  <body class="story">
+    <div id="skip-nav">
+      <a href="#gnb">메뉴 바로가기</a>
+      <a href="#container">본문 바로가기</a>
+    </div>
+    <div id="wrap">
+      <header id="header">
+        <div class="inner">
+          <h1 id="logo">
+            <a href="./index.html" class="logo__link">
+              <span class="blind">키아프서울</span>
+            </a>
+          </h1>
+          <div class="util">
+            <button class="lang">
+              <span class="blind">영어로 보기</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <g transform="rotate(-90, 12, 12)">
+                  <circle cx="12" cy="12" r="11" stroke-width="1.7" fill="none" />
+                  <line x1="1" y1="12" x2="23" y2="12" stroke-width="1.7" />
+                  <ellipse cx="12" cy="12" rx="11" ry="5.5" stroke-width="1.7" fill="none" />
+                  <line x1="12" y1="1" x2="12" y2="23" stroke-width="1.7" />
+                </g>
+              </svg>
+            </button>
+            <button class="all-menu">
+              <span class="blind">전체메뉴</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line class="line1" x1="2" y1="3" x2="22" y2="3"></line>
+                <line class="line2" x1="2" y1="12" x2="16" y2="12"></line>
+                <line class="line3" x1="2" y1="21" x2="22" y2="21"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+      <!-- active 추가시 활성화 -->
+      <nav id="nav-all" class="">
+        <div class="inner">
+          <ul class="gnb gnb_left">
+            <li><a href="./about.html">About</a></li>
+            <li><a href="#">Insight</a></li>
+            <li><a href="#">Archive</a></li>
+          </ul>
+          <ul class="gnb gnb_right">
+            <li><a href="#">News</a></li>
+            <li><a href="#">Partner</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <main id="container">
+        <section class="sec-g sec-story">
+          <div class="sec-story__title">
+            <div class="inner">
+              <span class="category">Story</span>
+              <h2 class="title">최대한 느리게 ASLSP</h2>
+              <div class="bottom-box">
+                <ul class="meta">
+                  <li>Brent Wadden</li>
+                  <li>2024. 9. 13 - 11. 16</li>
+                  <li>Peres Projects Berlin</li>
+                </ul>
+                <button class="link-btn"><span class="blind">공유하기</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="sec-story__visual">
+            <img
+              src="../resources/images/pattern/common/story_1.jpg"
+              alt="Installation view, Brent Wadden, ‘ASLSP’, Peres Projects, Berlin. Courtesy Peres Projects, Photographed by: Jerzy Goliszewski"
+            />
+          </div>
+          <div class="sec-story__cont">
+            <div class="inner">
+              <p>
+                페레스프로젝트는 브렌트 웨든(1979년, 캐나다 노바 스코샤)의 《최대한 느리게 ASLSP》을 개최한다. 이는
+                작가가 갤러리와 함께하는 여섯 번째 개인전이자 베를린에서의 네 번째 전시이다.
+              </p>
+              <img
+                src="../resources/images/pattern/common/story_2.jpg"
+                alt="Installation view, Brent Wadden, ‘ASLSP’, Peres Projects, Berlin. Courtesy Peres Projects, Photographed by: Jerzy Goliszewski"
+              />
+              <p>
+                아방가르드 작곡가 존 케이지가 1985년에 작곡한 ‘ASLSP’는 음과 음 사이의 간격을 끝없이 늘려, 소리를
+                정적으로 엮어 연주된다. 브렌트 웨든의 《최대한 느리게》는 이 음악적 코드를 양모, 면, 아크릴 실로 변환해
+                거대한 기하학적 추상화를 직조해 낸다. 가장 느린 속도로 진행되지는 않지만, 웨든의 작업은 베틀에 앉기 훨씬
+                전부터 꼼꼼하고 세심하게 시작된다. 크레이그리스트(Craigslist), 이베이(eBay), 페이스북(Facebook) 시장에서
+                중고 재료나 오래된 실을 찾아내는 과정은 필수적이면서도 하나의 과업으로 여겨진다. 그의 작업은 시간이 많이
+                소요되기에 아이디어의 시작과 완성 사이의 거리가 더욱 멀어진다. 느림은 의도적이며 필수적인 요소로, 웨든의
+                작업에서 이미지를 구성하는 핵심 수단이 된다.
+              </p>
+              <img
+                src="../resources/images/pattern/common/story_3.jpg"
+                alt="Brent Wadden, Untitled, 2024, Painting – Hand woven fibers, wool, cotton and acrylic on canvas in the artist’s frame, 202 x 146 cm (80 x 58 in)"
+              />
+              <p>
+                브렌트 웨든은 직조공처럼 표면을 구성하지만, 화가처럼 접근하여 자신의 직조물을 회화라고 부른다. 그는
+                유화로 시작했는데, 초기 회화 작품의 물성이 직물과 유사하다는 점에서 섬유 작업으로 이어졌다. 복잡한 직조
+                패널을 꿰매서 캔버스에 올린 후, 회화처럼 늘리고 액자에 넣는다. 형태와 색상이 생겨나고 공간을 차지하는
+                방식은 물감 덩어리나 섞인 붓질과 유사하지만, 그의 작품의 물리적 구조는 표면과 이를 덮는 재료가 동시에
+                존재하는 점에서 독특하다. 매체 간의 경계가 모호해지고 규율 간의 위기가 해체되는 것이다. 브렌트 웨든의
+                직조 회화는 체계적으로 숙련된 손과 호기심으로 만지는 손이 조화를 이루는 것처럼 보인다.
+              </p>
+              <img
+                src="../resources/images/pattern/common/story_4.jpg"
+                alt="Brent Wadden, Untitled, 2024, Painting – Hand Woven fibers, wool, cotton and acrylic on canvas in the artist’s frame, 184 x 160 cm (72 x 63 in)"
+              />
+              <p>
+                이러한 비일관성은 결코 되돌리거나 ‘고정’될 수 없다. 시간을 되돌릴 수 없고, 오직 앞으로 나아갈 수 있다.
+                브렌트 웨든은 직조할 때 단지 몇 미터 앞만 볼 수 있으며, 완성된 작업물은 베틀 뒤에서 서서히 드러난다.
+                특정 색의 실이 떨어지기 시작하면 다른 색의 실을 추가하여 작업을 계속한다. 패널이 완성되고 전체 직조가
+                형태를 드러내야만 모양, 색조, 음영의 변화와 전체적인 구성이 눈에 들어온다. 이런 방식의 직조는 미래에
+                대한 명확한 개념 없이 현재가 펼쳐지면서 드러나는 것에 가깝다. 여기서 우리는 연주자뿐만 아니라 듣는
+                사람도 음이 등장하고 머무는 현재에 긴장을 늦추지 않고 묶여 있을 수밖에 없는 케이지의 곡을 다시 만나게
+                된다. 소리에서든 실에서든 ‘최대한 느리게’라는 것은 바로 지금, 여기를 의미할 수 있다.
+              </p>
+              <div class="btn-box">
+                <a href="#" class="btn-list">목록보기</a>
+              </div>
+            </div>
+          </div>
+          <div class="sec-story__swiper bg-gray">
+            <div class="inner">
+              <h3 class="swiper__title">Artwork</h3>
+              <div class="swiper mySwiper story-swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img
+                      src="../resources/images/pattern/common/story-artwork_1.jpg"
+                      alt="Brent Wadden, Untitled, 2024, Painting – Hand woven fibers, wool, cotton and acrylic on canvas in the artist’s frame, 130 x 127 cm (51 x 50 in)"
+                    />
+                    <div class="txt-box">
+                      <strong class="title">Untitled, 2024</strong>
+                      <p class="desc">
+                        Painting - Hand woven fibers, wool, cotton and acrylic on canvas in the artist's frame, 130 x
+                        127 cm (51 x 50 in)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="../resources/images/pattern/common/story-artwork_2.jpg"
+                      alt="Installation view, Brent Wadden, ‘ASLSP’, Peres Projects, Berlin. Courtesy Peres Projects, Photographed by: Jerzy Goliszewski"
+                    />
+                    <div class="txt-box">
+                      <strong class="title">Untitled, 2024</strong>
+                      <p class="desc">
+                        Painting - Hand woven fibers, wool, cotton and acrylic on canvas in the artist's frame, 130 x
+                        127 cm (51 x 50 in)
+                      </p>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="../resources/images/pattern/common/story-artwork_3.jpeg"
+                      alt="Installation view, Brent Wadden, ‘ASLSP’, Peres Projects, Berlin. Courtesy Peres Projects, Photographed by: Jerzy Goliszewski"
+                    />
+                    <div class="txt-box">
+                      <strong class="title">Untitled, 2024</strong>
+                      <p class="desc">
+                        Painting - Hand woven fibers, wool, cotton and acrylic on canvas in the artist's frame, 130 x
+                        127 cm (51 x 50 in)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer id="footer" include-html="./layout/footer.html"></footer>
+    </div>
+  </body>
+</html>
